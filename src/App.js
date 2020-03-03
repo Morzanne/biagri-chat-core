@@ -11,17 +11,15 @@ import {
 import { MessageList, MessageInput } from 'stream-chat-react';
 
 import ChatClientProvider from './components/ChatClientProvider/ChatClientProvider';
-import { ChatUserContainer } from './components/ChatUser/ChatUserContainer';
 
 import 'stream-chat-react/dist/css/index.css';
 
 const App = ({ apiKey, secretKey, user }) => {
   return (
     <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
-      {({ chatClient, user }) => (
+      {({ chatClient }) => (
         <Chat client={chatClient} theme={'messaging light'}>
           <ChannelList />
-          <ChatUserContainer user={user} chatClient={chatClient} />
           <Channel Paginator={props => <InfiniteScrollPaginator {...props} />}>
             <Window>
               <ChannelHeader />

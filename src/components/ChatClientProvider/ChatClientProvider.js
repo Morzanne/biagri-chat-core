@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PT from 'prop-types';
 import { StreamChat } from 'stream-chat';
 
@@ -10,14 +10,27 @@ class ChatClientProvider extends Component {
     children: PT.func.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      client: props.client
+    };
+  }
+
+  componentDidMount = () => {
+    if (!this.state.client)
+      this.setState({
+        client: new StreamChat(this.props.apiKey)
+      });
+  };
+
   render() {
-    const { children, user, apiKey } = this.props;
-    console.log('je render');
-    if (!children) {
+    const { children, user } = this.props;
+    const { client } = this.state;
+
+    if (!children || !client) {
       return null;
     }
-
-    const client = new StreamChat(apiKey);
 
     return children({
       chatClient: client,
@@ -25,5 +38,9 @@ class ChatClientProvider extends Component {
     });
   }
 }
+
+ChatClientProvider.defaultProps = {
+  client: null
+};
 
 export default ChatClientProvider;

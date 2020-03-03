@@ -21,12 +21,13 @@ class ChatClientProvider extends Component {
     const { user } = this.props;
     if (!this.state.client) {
       const client = new StreamChat(this.props.apiKey);
-
       if (user) {
-        client.setUser({
-          id,
-          token
-        });
+        client.setUser(
+          {
+            id: user.id
+          },
+          user.token
+        );
       } else {
         client.setGuestUser({
           id: 'Anonyme'

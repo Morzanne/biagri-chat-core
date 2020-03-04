@@ -863,11 +863,19 @@
   text-align: center;
   align-items: center;
 }
+
+.str-chat__avatar-wrapper {
+  border: 2px solid rgb(255, 255, 255);
+
+  border-radius: 50%;
+  z-index: 0;
+}
+
 .str-chat__avatar-image--loaded {
   background-color: none;
 }
 .str-chat__avatar-fallback {
-  background-color: #f1f1f3;
+  background-color: #a1a1a1;
   color: black;
 }
 

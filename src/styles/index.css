@@ -416,6 +416,7 @@
 }
 .str-chat__header-livestream-right-button-wrapper {
   position: relative;
+  display: none;
 }
 
 .str-chat__header .str-chat__avatar {
@@ -626,29 +627,6 @@
   height: 100%;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.08);
-}
-
-@media screen and (max-width: 960px) {
-  .str-chat-channel-list-burger {
-    display: flex;
-  }
-  .str-chat-channel-list.biagri,
-  .str-chat-channel-list.team,
-  .str-chat-channel-list.commerce {
-    position: fixed;
-    left: -380px;
-    top: 0;
-    z-index: 1001;
-    min-height: 100vh;
-    overflow-y: auto;
-    box-shadow: 7px 0 9px 0 rgba(0, 0, 0, 0.03), 1px 0 0 0 rgba(0, 0, 0, 0.03);
-    transition: left 200ms ease-in-out;
-  }
-  .str-chat-channel-checkbox:checked ~ .str-chat-channel-list.biagri,
-  .str-chat-channel-checkbox:checked ~ .str-chat-channel-list.team,
-  .str-chat-channel-checkbox:checked ~ .str-chat-channel-list.commerce {
-    left: 0px;
-  }
 }
 
 .str-chat-channel-list .str-chat__channel-list-messenger {
@@ -876,6 +854,11 @@
 }
 .str-chat__avatar-fallback {
   background-color: #a1a1a1;
+  color: black;
+}
+
+/** Chevron font icon to indicate the user the state of the chat box toggle */
+.str-chat__chevron-down {
   color: black;
 }
 
@@ -2025,7 +2008,7 @@
   top: calc(100% - 35px);
   width: 22px;
   height: 22px;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background-size: 44px 44px;

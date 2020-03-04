@@ -3,7 +3,9 @@ import PT from 'prop-types';
 import { ChannelListHeaderAvatarContainer } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatarContainer';
 import { withChatContext } from 'stream-chat-react';
 import Spinner from '../common/Spinner';
-import FontAwesome from 'react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 export const ChannelList = ({ onClick, isChatBoxOpen, ...props }) => {
   if (props.loading) {
@@ -23,7 +25,6 @@ export const ChannelList = ({ onClick, isChatBoxOpen, ...props }) => {
             source={props.client.user.image}
             name={props.client.user.name || props.client.user.id}
             size={35}
-            onClick={onClick}
           />
         </div>
         <div className="str-chat__channel-list-team__header--middle">
@@ -41,7 +42,9 @@ export const ChannelList = ({ onClick, isChatBoxOpen, ...props }) => {
             onClick={onClick}
             className="str-chat__channel-list-team__header--button"
           >
-            TOGGLE
+            <FontAwesomeIcon
+              icon={isChatBoxOpen ? faChevronDown : faChevronUp}
+            />
           </button>
         </div>
       </div>

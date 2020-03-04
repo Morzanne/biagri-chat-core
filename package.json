@@ -5,7 +5,9 @@
   "author": "Biagri",
   "license": "MIT",
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "prop-types": "^15.7.2",
+    "react-fontawesome": "^1.7.1",
     "stream-chat-react": "^0.8.4"
   },
   "devDependencies": {

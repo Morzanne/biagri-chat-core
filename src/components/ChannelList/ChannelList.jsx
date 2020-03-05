@@ -4,47 +4,59 @@ import { ChannelListHeaderAvatarContainer } from '../ChannelListHeaderAvatar/Cha
 import Spinner from '../common/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronDown,
+  faChevronUp,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons';
 
-export const ChannelList = ({ onClick, isChatBoxOpen, ...props }) => {
+export const ChannelList = ({ onClick, isChatBoxClosed, ...props }) => {
   if (props.loading) {
     return <Spinner />;
   }
   return (
     <div
       className={
-        isChatBoxOpen
-          ? 'str-chat__channel-list-team__main str-chat__channel-list-team__main-expanded'
-          : 'str-chat__channel-list-team__main str-chat__channel-list-team__main-minimized'
+        isChatBoxClosed
+          ? 'str-chat__channel-list-team__main str-chat__channel-list-team__main--expanded'
+          : 'str-chat__channel-list-team__main str-chat__channel-list-team__main--minimized'
       }
     >
-      <div className="str-chat__channel-list-team__header">
-        <div className="str-chat__channel-list-team__header--left">
+      <div className="biagri-str-chat__channel-list-team__header">
+        <div className="biagri-str-chat__channel-list-team__header--left">
           <ChannelListHeaderAvatarContainer
             source={props.client.user.image}
             name={props.client.user.name || props.client.user.id}
             size={35}
           />
         </div>
-        <div className="str-chat__channel-list-team__header--middle">
-          <div className="str-chat__channel-list-team__header--title">
+        <div className="biagri-str-chat__channel-list-team__header--middle">
+          <div className="biagri-str-chat__channel-list-team__header--title">
             {props.client.user.name || props.client.user.id}
           </div>
           <div
-            className={`str-chat__channel-list-team__header--status ${props.client.user.status}`}
+            className={`biagri-str-chat__channel-list-team__header--status ${props.client.user.status}`}
           >
             {props.client.user.status}
           </div>
         </div>
-        <div className="str-chat__channel-list-team__header--right">
+        <div className="biagri-str-chat__channel-list-team__header--right">
           <button
             onClick={onClick}
-            className="str-chat__channel-list-team__header--button"
+            className="biagri-str-chat__channel-list-team__header--button"
           >
             <FontAwesomeIcon
-              icon={isChatBoxOpen ? faChevronDown : faChevronUp}
+              icon={isChatBoxClosed ? faChevronDown : faChevronUp}
               color="white"
             />
+          </button>
+        </div>
+        <div className="biagri-str-chat__channel-list-team__header--right">
+          <button
+            onClick={onClick}
+            className="biagri-str-chat__channel-list-team__header--crossButton"
+          >
+            <FontAwesomeIcon icon={faTimes} color="white" />
           </button>
         </div>
       </div>

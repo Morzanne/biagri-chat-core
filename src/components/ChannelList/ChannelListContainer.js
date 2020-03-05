@@ -5,14 +5,14 @@ import { ChannelList } from './ChannelList';
 
 class ChannelListContainer extends Component {
   state = {
-    isChatBoxOpen: false
+    isChatBoxClosed: false
   };
 
   onClick = () => {
-    const { isChatBoxOpen } = this.state;
+    const { isChatBoxClosed } = this.state;
 
-    const currentChatBoxState = isChatBoxOpen;
-    this.setState({ isChatBoxOpen: !currentChatBoxState });
+    const currentChatBoxState = isChatBoxClosed;
+    this.setState({ isChatBoxClosed: !currentChatBoxState });
   };
 
   render() {
@@ -21,18 +21,18 @@ class ChannelListContainer extends Component {
       <ChannelList
         onClick={this.onClick}
         {...props}
-        isChatBoxOpen={this.state.isChatBoxOpen}
+        isChatBoxClosed={this.state.isChatBoxClosed}
       />
     );
   }
 }
 
 ChannelListContainer.propTypes = {
-  isChatBoxOpen: PT.bool
+  isChatBoxClosed: PT.bool
 };
 
 ChannelListContainer.defaultProps = {
-  isChatBoxOpen: false
+  isChatBoxClosed: false
 };
 
 const CustomChannelListContainer = withChatContext(ChannelListContainer);

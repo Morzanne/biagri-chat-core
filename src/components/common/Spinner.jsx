@@ -1,14 +1,16 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const Spinner = ({ className: baseClassName, color, size, padding }) => {
   return (
     <div style={{ padding: padding + 'px' }}>
-      <FontAwesome
+      <FontAwesomeIcon
         style={{ color: color }}
         size={size}
         className={baseClassName}
-        name="spinner"
+        icon={faSpinner}
         spin
       />
     </div>
@@ -16,8 +18,7 @@ const Spinner = ({ className: baseClassName, color, size, padding }) => {
 };
 Spinner.defaultProps = {
   color: 'black',
-  size: '3x',
-  padding: 100
+  size: '1x',
 };
 
 export default Spinner;

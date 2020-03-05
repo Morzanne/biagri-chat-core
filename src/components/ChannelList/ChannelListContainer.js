@@ -17,9 +17,19 @@ class ChannelListContainer extends Component {
 
   render() {
     const { ...props } = this.props;
-    return <ChannelList onClick={this.onClick} {...props} isChatBoxOpen={this.state.isChatBoxOpen} />;
+    return (
+      <ChannelList
+        onClick={this.onClick}
+        {...props}
+        isChatBoxOpen={this.state.isChatBoxOpen}
+      />
+    );
   }
 }
+
+ChannelListContainer.propTypes = {
+  isChatBoxOpen: PT.bool
+};
 
 ChannelListContainer.defaultProps = {
   isChatBoxOpen: false

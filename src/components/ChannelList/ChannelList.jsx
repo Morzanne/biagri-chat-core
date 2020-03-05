@@ -1,7 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
 import { ChannelListHeaderAvatarContainer } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatarContainer';
-import { withChatContext } from 'stream-chat-react';
 import Spinner from '../common/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -44,6 +43,7 @@ export const ChannelList = ({ onClick, isChatBoxOpen, ...props }) => {
           >
             <FontAwesomeIcon
               icon={isChatBoxOpen ? faChevronDown : faChevronUp}
+              color="white"
             />
           </button>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PT from 'prop-types';
 
 export const ChannelListHeaderAvatar = ({
   size,
@@ -43,4 +44,11 @@ export const ChannelListHeaderAvatar = ({
       </div>
     </div>
   );
+};
+
+ChannelListHeaderAvatar.propTypes = {
+  image: PT.string,
+  name: PT.string,
+  shape: PT.oneOf(['circle', 'rounded', 'square']),
+  size: PT.number
 };

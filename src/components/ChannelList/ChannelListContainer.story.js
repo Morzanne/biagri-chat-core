@@ -9,7 +9,7 @@ export default {
   component: ChannelList
 };
 
-export const ChannelListState = () => {
+export const DesktopAndTablChannelListState = () => {
   return (
     <ChatClientProvider
       apiKey={'6udgaavbs4pz'}

@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   Chat,
   Channel,
-  ChannelHeader,
   Thread,
-  Window,
   ChannelList,
   InfiniteScrollPaginator
 } from 'stream-chat-react';
@@ -12,6 +10,8 @@ import { MessageList, MessageInput } from 'stream-chat-react';
 
 import ChatClientProvider from './components/ChatClientProvider/ChatClientProvider';
 import CustomChannelListContainer from './components/ChannelList/ChannelListContainer';
+import CustomMessageListHeader from './components/MessageListHeader/MessageListHeader';
+import CustomChatBox from './components/ChatBox/ChatBox';
 
 import index from '../src/styles/index.css';
 
@@ -22,11 +22,11 @@ const App = ({ apiKey, secretKey, user }) => {
         <Chat client={chatClient} theme={'biagri'}>
           <ChannelList List={CustomChannelListContainer} />
           <Channel Paginator={props => <InfiniteScrollPaginator {...props} />}>
-            <Window>
-              <ChannelHeader />
+            <CustomChatBox>
+              <CustomMessageListHeader />
               <MessageList />
               <MessageInput />
-            </Window>
+            </CustomChatBox>
             <Thread />
           </Channel>
         </Chat>

@@ -23,7 +23,12 @@ const App = ({ apiKey, secretKey, user }) => {
       {({ chatClient }) => (
         <Chat client={chatClient} theme={'biagri'}>
           <CustomChatBoxContainer>
-            {({ handleChatBoxToggle, isMessagesBoxOpen }) => (
+            {({
+              handleChatBoxToggle,
+              isMessagesBoxOpen,
+              closeChatBox,
+              ...props
+            }) => (
               <Fragment>
                 <ChannelList
                   List={CustomChannelListContainer}
@@ -43,7 +48,8 @@ const App = ({ apiKey, secretKey, user }) => {
                       <Thread />
                       <CustomMessagesBoxContainer>
                         <CustomMessageListHeader
-                          handleChatBoxToggle={handleChatBoxToggle}
+                          {...props}
+                          closeChatBox={closeChatBox}
                           isMessagesBoxOpen={isMessagesBoxOpen}
                         />
                         <MessageList />

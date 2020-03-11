@@ -26,7 +26,7 @@ export const MessageListHeader = ({ ...props }) => {
       </div>
       <div className="biagri-str-chat__channel-list-team__header--right">
         <button
-          onClick={props.handleChatBoxToggle}
+          onClick={props.closeChatBox}
           className="biagri-str-chat__channel-box-team__header--crossButton"
         >
           <FontAwesomeIcon icon={faTimes} color="white" />

@@ -4,7 +4,11 @@ import { withChatContext } from 'stream-chat-react';
 
 class ChannePreviewContainer extends Component {
   onClick = () => {
-    const { channel, setActiveChannel, handleChatBoxToggle } = this.props;
+    const {
+      channel,
+      setActiveChannel,
+      handleChatBoxToggle,
+    } = this.props;
     handleChatBoxToggle();
     setActiveChannel(channel);
   };

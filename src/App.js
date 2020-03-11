@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   Chat,
   Channel,
@@ -11,7 +11,9 @@ import { MessageList, MessageInput } from 'stream-chat-react';
 import ChatClientProvider from './components/ChatClientProvider/ChatClientProvider';
 import CustomChannelListContainer from './components/ChannelList/ChannelListContainer';
 import CustomMessageListHeader from './components/MessageListHeader/MessageListHeader';
-import CustomChatBox from './components/ChatBox/ChatBox';
+import CustomChatBoxContainer from './components/ChatBox/ChatBoxContainer';
+import CustomChannelPreviewContainer from './components/ChannelPreview/ChannelPreviewContainer';
+import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxContainer';
 
 import index from '../src/styles/index.css';
 
@@ -20,15 +22,39 @@ const App = ({ apiKey, secretKey, user }) => {
     <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
       {({ chatClient }) => (
         <Chat client={chatClient} theme={'biagri'}>
-          <ChannelList List={CustomChannelListContainer} />
-          <Channel Paginator={props => <InfiniteScrollPaginator {...props} />}>
-            <CustomChatBox>
-              <CustomMessageListHeader />
-              <MessageList />
-              <MessageInput />
-            </CustomChatBox>
-            <Thread />
-          </Channel>
+          <CustomChatBoxContainer>
+            {({ handleChatBoxToggle, isMessagesBoxOpen }) => (
+              <Fragment>
+                <ChannelList
+                  List={CustomChannelListContainer}
+                  Preview={props => (
+                    <CustomChannelPreviewContainer
+                      {...props}
+                      handleChatBoxToggle={handleChatBoxToggle}
+                      isMessagesBoxOpen={isMessagesBoxOpen}
+                    />
+                  )}
+                />
+                <Channel
+                  Paginator={props => <InfiniteScrollPaginator {...props} />}
+                >
+                  {isMessagesBoxOpen && (
+                    <div>
+                      <Thread />
+                      <CustomMessagesBoxContainer>
+                        <CustomMessageListHeader
+                          handleChatBoxToggle={handleChatBoxToggle}
+                          isMessagesBoxOpen={isMessagesBoxOpen}
+                        />
+                        <MessageList />
+                        <MessageInput />
+                      </CustomMessagesBoxContainer>
+                    </div>
+                  )}
+                </Channel>
+              </Fragment>
+            )}
+          </CustomChatBoxContainer>
         </Chat>
       )}
     </ChatClientProvider>

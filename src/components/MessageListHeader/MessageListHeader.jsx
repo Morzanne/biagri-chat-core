@@ -1,7 +1,8 @@
 import React from 'react';
-import PT from 'prop-types';
 import { ChannelListHeaderAvatarContainer } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatarContainer';
 import { withChatContext } from 'stream-chat-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export const MessageListHeader = ({ ...props }) => {
   return (
@@ -22,6 +23,14 @@ export const MessageListHeader = ({ ...props }) => {
             {props.channel.data.subtitle}
           </p>
         )}
+      </div>
+      <div className="biagri-str-chat__channel-list-team__header--right">
+        <button
+          onClick={props.handleChatBoxToggle}
+          className="biagri-str-chat__channel-box-team__header--crossButton"
+        >
+          <FontAwesomeIcon icon={faTimes} color="white" />
+        </button>
       </div>
     </div>
   );

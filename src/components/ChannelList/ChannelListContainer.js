@@ -10,7 +10,6 @@ class ChannelListContainer extends Component {
 
   onClick = () => {
     const { isChatBoxClosed } = this.state;
-
     const currentChatBoxState = isChatBoxClosed;
     this.setState({ isChatBoxClosed: !currentChatBoxState });
   };

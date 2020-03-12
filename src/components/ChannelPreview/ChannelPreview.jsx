@@ -1,11 +1,30 @@
 import React from 'react';
 import PT from 'prop-types';
+import { ChannelListHeaderAvatar } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatar';
 
-const ChannelPreview = ({ onClick, channel }) => {
+const ChannelPreview = ({ onClick, channel, ...props }) => {
+  const unreadClass =
+    props.unread_count >= 1 ? 'str-chat__channel-preview-compact--unread' : '';
+  const activeClass = props.active
+    ? 'str-chat__channel-preview-compact--active'
+    : '';
+  const channelName = channel.data.name || channel.cid;
   return (
-    <div>
-      <button onClick={onClick}>{channel.data.id}</button>
-    </div>
+    <button
+      className={`str-chat__channel-preview-compact ${unreadClass} ${activeClass}`}
+      onClick={onClick}
+    >
+      <div className="str-chat__channel-preview-compact--left">
+        <ChannelListHeaderAvatar
+          shape="rounded"
+          image={channel.data.image}
+          size={20}
+        />
+      </div>
+      <div className="str-chat__channel-preview-compact--right">
+        {channelName}
+      </div>
+    </button>
   );
 };
 

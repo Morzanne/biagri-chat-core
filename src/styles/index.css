@@ -853,7 +853,6 @@
 
 .str-chat__avatar-wrapper {
   border: 2px solid rgb(255, 255, 255);
-
   border-radius: 50%;
   z-index: 0;
 }
@@ -6460,6 +6459,13 @@
   align-self: flex-end;
   margin-right: 0;
 }
+
+.biagri.str-chat .str-chat__avatar-fallback {
+  background-color: #a1a1a1;
+  color: black;
+  border-radius: 50%;
+}
+
 .str-chat__message-simple-status > .str-chat__tooltip {
   display: none;
   max-width: 300px;
@@ -6856,8 +6862,33 @@
   text-overflow: ellipsis;
 }
 
-.biagri.str-chat .str-chat__channel-preview button:hover {
-  background: #a1a1a1;
+.biagri.str-chat .str-chat__channel-preview-compact {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+  color: black;
+  position: relative;
+  border: none;
+
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: left;
+  outline: 0;
+}
+
+.biagri.str-chat .str-chat__channel-preview-compact:hover {
+  background: #e8e8e8;
+  cursor: pointer;
+}
+
+.biagri.str-chat .str-chat__channel-preview-compact--active {
+  color: black;
+  background: white;
 }
 
 /* FIX THOSE MEDIAS WHEN WE DEPLOY BECAUSE ACTUALLY IT TAKES THE BREAKPOINTS DEFINES BY STORYBOOK, NOT OURS */

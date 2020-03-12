@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import ChannelPreview from './ChannelPreview';
-import { withChatContext } from 'stream-chat-react';
+import { withChannelContext } from 'stream-chat-react';
 
 class ChannePreviewContainer extends Component {
   onClick = () => {
-    const {
-      channel,
-      setActiveChannel,
-      handleChatBoxToggle,
-    } = this.props;
+    const { channel, setActiveChannel, handleChatBoxToggle } = this.props;
     handleChatBoxToggle();
     setActiveChannel(channel);
   };
@@ -16,10 +12,18 @@ class ChannePreviewContainer extends Component {
   render() {
     const { channel } = this.props;
 
-    return <ChannelPreview onClick={this.onClick} channel={channel} />;
+    return (
+      <ChannelPreview
+        onClick={this.onClick}
+        channel={channel}
+        {...this.props}
+      />
+    );
   }
 }
 
-const CustomChannelPreviewContainer = withChatContext(ChannePreviewContainer);
+const CustomChannelPreviewContainer = withChannelContext(
+  ChannePreviewContainer
+);
 
 export default CustomChannelPreviewContainer;

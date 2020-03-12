@@ -70,11 +70,7 @@ ChannelList.propTypes = {
 
   error: PT.bool,
 
-  client: PT.object,
-
-  LoadingIndicator: PT.oneOfType([PT.node, PT.func]),
-
-  LoadingErrorIndicator: PT.oneOfType([PT.node, PT.func])
+  client: PT.object
 };
 
 ChannelList.defaultProps = {

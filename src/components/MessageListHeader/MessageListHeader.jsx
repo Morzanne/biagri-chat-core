@@ -1,4 +1,6 @@
 import React from 'react';
+import PT from 'prop-types';
+
 import { ChannelListHeaderAvatarContainer } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatarContainer';
 import { withChatContext } from 'stream-chat-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -34,6 +36,11 @@ export const MessageListHeader = ({ ...props }) => {
       </div>
     </div>
   );
+};
+
+MessageListHeader.propTypes = {
+  channel: PT.object,
+  closeChatBox: PT.func
 };
 
 const CustomMessageListHeader = withChatContext(MessageListHeader);

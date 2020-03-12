@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PT from 'prop-types';
+
 import ChannelPreview from './ChannelPreview';
 import { withChannelContext } from 'stream-chat-react';
 
@@ -25,5 +27,9 @@ class ChannePreviewContainer extends Component {
 const CustomChannelPreviewContainer = withChannelContext(
   ChannePreviewContainer
 );
+
+ChannePreviewContainer.propTypes = {
+  channel: PT.object
+};
 
 export default CustomChannelPreviewContainer;

@@ -30,4 +30,10 @@ const ChannelPreview = ({ onClick, channel, ...props }) => {
   );
 };
 
+ChannelPreview.propTypes = {
+  channel: PT.object,
+
+  onClick: PT.func
+};
+
 export default ChannelPreview;

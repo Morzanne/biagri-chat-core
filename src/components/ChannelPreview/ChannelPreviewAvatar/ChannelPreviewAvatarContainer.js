@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PT from 'prop-types';
 
-import { ChannelListHeaderAvatar } from './ChannelListHeaderAvatar';
+import { ChannelPreviewAvatar } from './ChannelPreviewAvatar';
 
-export class ChannelListHeaderAvatarContainer extends Component {
+export class ChannelPreviewAvatarContainer extends Component {
   state = {
     errored: false,
     loaded: false
@@ -33,8 +33,9 @@ export class ChannelListHeaderAvatarContainer extends Component {
 
   render() {
     const { size, name, shape, image } = this.props;
+    console.log(this.props);
     return (
-      <ChannelListHeaderAvatar
+      <ChannelPreviewAvatar
         size={size}
         name={name}
         shape={shape}
@@ -45,7 +46,7 @@ export class ChannelListHeaderAvatarContainer extends Component {
   }
 }
 
-ChannelListHeaderAvatarContainer.propTypes = {
+ChannelPreviewAvatarContainer.propTypes = {
   /** image url */
   image: PT.string,
   /** name of the picture, used for title tag fallback */
@@ -56,7 +57,7 @@ ChannelListHeaderAvatarContainer.propTypes = {
   size: PT.number
 };
 
-ChannelListHeaderAvatarContainer.defaultProps = {
+ChannelPreviewAvatarContainer.defaultProps = {
   size: 32,
   shape: 'circle'
 };

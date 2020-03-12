@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PT from 'prop-types';
 import { withChatContext } from 'stream-chat-react';
 import { ChannelList } from './ChannelList';
 
@@ -25,10 +24,6 @@ class ChannelListContainer extends Component {
     );
   }
 }
-
-ChannelListContainer.propTypes = {
-  isChatBoxClosed: PT.bool
-};
 
 ChannelListContainer.defaultProps = {
   isChatBoxClosed: false

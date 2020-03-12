@@ -6466,6 +6466,11 @@
   border-radius: 50%;
 }
 
+.biagri.str-chat .str-chat__channel-preview-compact--left {
+  width: 30px;
+  height: 30px;
+}
+
 .str-chat__message-simple-status > .str-chat__tooltip {
   display: none;
   max-width: 300px;
@@ -6888,7 +6893,8 @@
 
 .biagri.str-chat .str-chat__channel-preview-compact--active {
   color: black;
-  background: white;
+  background: #ececec;
+  filter: brightness(95%);
 }
 
 /* FIX THOSE MEDIAS WHEN WE DEPLOY BECAUSE ACTUALLY IT TAKES THE BREAKPOINTS DEFINES BY STORYBOOK, NOT OURS */

@@ -1,6 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
-import { ChannelListHeaderAvatar } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatar';
+
+import { ChannelPreviewAvatarContainer } from './ChannelPreviewAvatar/ChannelPreviewAvatarContainer';
 
 const ChannelPreview = ({ onClick, channel, ...props }) => {
   const unreadClass =
@@ -15,10 +16,11 @@ const ChannelPreview = ({ onClick, channel, ...props }) => {
       onClick={onClick}
     >
       <div className="str-chat__channel-preview-compact--left">
-        <ChannelListHeaderAvatar
+        <ChannelPreviewAvatarContainer
           shape="rounded"
           image={channel.data.image}
-          size={20}
+          size={30}
+          name={channel.cid}
         />
       </div>
       <div className="str-chat__channel-preview-compact--right">

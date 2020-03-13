@@ -6737,7 +6737,7 @@
   display: flex;
   align-items: center;
   background: rgb(90, 148, 73);
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+  /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);*/
   font-size: 14px;
   color: white;
   letter-spacing: 0;
@@ -6830,14 +6830,14 @@
   height: 100%;
   min-width: 0;
   background: white;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2);*/
   transition: transform 0.8s cubic-bezier(0.02, 1.08, 0.58, 1);
 }
 
 /** CHAT BOX WHEN EXPANDED */
 .str-chat__channel-list-team__main--expanded {
   height: 696px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2) !important;
+  /*box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2) !important;*/
 }
 
 /** CHAT BOX WHEN MINIMIZED */
@@ -6933,6 +6933,7 @@
   .biagri.str-chat .str-chat__channel-list-team__main,
   .str-chat-channel-list {
     width: 100%;
+    box-shadow: none;
   }
 
   .biagri-str-chat__channel-list-team__header--button {
@@ -6950,8 +6951,11 @@
   }
 
   .biagri.str-chat-channel-list {
-    position: absolute;
-    width: 100%;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 
   }
 
@@ -6969,6 +6973,12 @@
 
   .str-chat-channel .str-chat__container .str-chat__main-panel {
     margin-left: 0;
+    box-shadow: none;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
   }
 }
 
@@ -6982,11 +6992,7 @@
   }
 }
 
-@media (max-width: 414px - 1) {
-  .str-chat__channel-list-team__main--expanded {
-    height: 100%;
-  }
-}
+
 
 .chat-overlay {
   position: fixed;

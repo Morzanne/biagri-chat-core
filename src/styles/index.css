@@ -6719,14 +6719,58 @@
 
 /* CUSTOM BIAGRI CLASSES */
 
-.biagri .str-chat__container {
+/* CHAT OVERLAY WAS CREATED AS AN ANCHOR POINT FOR THE CHAT, 
+IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
+.chat-overlay {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  right: 8px;
+  height: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+
+/* MESSAGES BOX CLASSES START */
+.biagri.str-chat .str-chat__container {
   float: right;
   height: 100%;
   margin-right: 50px;
   display: flex;
 }
 
-.biagri.str-chat-channel-list {
+.biagri-str-chat__channel-box-team__header--crossButton {
+  margin: 0;
+  padding: 15px 5px;
+  border: 0;
+  cursor: pointer;
+  background: none;
+}
+
+.biagri-str-chat__channel-box-team__header--leftArrow {
+  display: none;
+}
+
+.biagri-str-chat__header {
+  padding: 15px 15px 15px 20px;
+  max-height: 60px;
+  border-radius: 2px 2px 0 0;
+  display: flex;
+  align-items: center;
+  background: rgb(90, 148, 73);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+  font-size: 14px;
+  color: white;
+  letter-spacing: 0;
+  position: relative;
+}
+/* MESSAGES BOX CLASSES END */
+
+/* CHANNEL LIST CLASSES START */
+.biagri.str-chat .str-chat-channel-list {
   float: right;
 }
 
@@ -6737,7 +6781,6 @@
   display: flex;
   align-items: center;
   background: rgb(90, 148, 73);
-  /*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);*/
   font-size: 14px;
   color: white;
   letter-spacing: 0;
@@ -6805,18 +6848,6 @@
   display: none;
 }
 
-.biagri-str-chat__channel-box-team__header--crossButton {
-  margin: 0;
-  padding: 15px 5px;
-  border: 0;
-  cursor: pointer;
-  background: none;
-}
-
-.biagri-str-chat__channel-box-team__header--leftArrow {
-  display: none;
-}
-
 .biagri-str-chat__channel-list-team__header:hover {
   filter: brightness(95%);
 }
@@ -6830,51 +6861,12 @@
   height: 100%;
   min-width: 0;
   background: white;
-  /*box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2);*/
   transition: transform 0.8s cubic-bezier(0.02, 1.08, 0.58, 1);
-}
-
-/** CHAT BOX WHEN EXPANDED */
-.str-chat__channel-list-team__main--expanded {
-  height: 696px;
-  /*box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2) !important;*/
 }
 
 /** CHAT BOX WHEN MINIMIZED */
 .str-chat__channel-list-team__main--minimized {
   transform: translateY(100%) translateY(-60px);
-}
-
-.biagri-str-chat__header {
-  padding: 15px 15px 15px 20px;
-  max-height: 60px;
-  border-radius: 2px 2px 0 0;
-  display: flex;
-  align-items: center;
-  background: rgb(90, 148, 73);
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
-  font-size: 14px;
-  color: white;
-  letter-spacing: 0;
-  position: relative;
-}
-
-.biagri.str-chat .str-chat__channel-preview button {
-  position: relative;
-  border: none;
-  background: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  padding: 10px 40px 10px 10px;
-  font-size: 13px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  outline: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  text-overflow: ellipsis;
 }
 
 .biagri.str-chat .str-chat__channel-preview-compact {
@@ -6905,8 +6897,11 @@
   background: #ececec;
   filter: brightness(95%);
 }
+/* CHANNEL LIST CLASSES END */
 
-/* FIX THOSE MEDIAS WHEN WE DEPLOY BECAUSE ACTUALLY IT TAKES THE BREAKPOINTS DEFINES BY STORYBOOK, NOT OURS */
+/*### MEDIAS FIX THOSE MEDIAS WHEN WE ARE ABLE TO INTEGRATE 
+THE CORE TO THE APP BECAUSE ACTUALLY IT TAKES THE BREAKPOINTS 
+DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
 
 @media screen and (max-width: 960px) {
   .str-chat-channel.biagri .str-chat__main-panel {
@@ -6928,7 +6923,6 @@
     margin-right: 10px;
     background: none;
   }
-  
 
   .biagri.str-chat .str-chat__channel-list-team__main,
   .str-chat-channel-list {
@@ -6948,6 +6942,7 @@
     position: relative !important;
     display: block !important;
     right: 0 !important;
+    overflow: hidden !important;
   }
 
   .biagri.str-chat-channel-list {
@@ -6956,7 +6951,6 @@
     top: 0;
     right: 0;
     left: 0;
-
   }
 
   .str-chat-channel {
@@ -6990,19 +6984,4 @@
   .biagri-str-chat__channel-list-team__header--button {
     display: none;
   }
-}
-
-
-
-.chat-overlay {
-  position: fixed;
-  z-index: 1000;
-  bottom: 0;
-  right: 8px;
-  height: 0;
-  overflow: visible;
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: nowrap;
-  align-items: flex-end;
 }

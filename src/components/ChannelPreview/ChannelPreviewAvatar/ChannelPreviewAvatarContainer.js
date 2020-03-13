@@ -33,7 +33,6 @@ export class ChannelPreviewAvatarContainer extends Component {
 
   render() {
     const { size, name, shape, image } = this.props;
-    console.log(this.props);
     return (
       <ChannelPreviewAvatar
         size={size}

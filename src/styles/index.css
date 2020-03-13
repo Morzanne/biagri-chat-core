@@ -6905,7 +6905,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   text-align: left;
   outline: 0;
@@ -6931,7 +6931,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 .biagri.str-chat .str-chat__channel-preview-last-message {
   position: absolute;
   left: 0;
-  bottom: -15px;
+  bottom: -20px;
   font-style: italic;
 }
 

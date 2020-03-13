@@ -6790,6 +6790,10 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 .biagri-str-chat__header:hover {
   filter: brightness(95%);
 }
+
+.biagri.str-chat .str-chat__message-simple__actions__action--thread {
+  display: none;
+}
 /* MESSAGES BOX CLASSES END */
 
 /* CHANNEL LIST CLASSES START */

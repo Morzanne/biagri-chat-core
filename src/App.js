@@ -19,51 +19,53 @@ import index from '../src/styles/index.css';
 
 const App = ({ apiKey, secretKey, user }) => {
   return (
-    <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
-      {({ chatClient }) => (
-        <Chat client={chatClient} theme={'biagri'}>
-          <CustomChatBoxContainer>
-            {({
-              handleChatBoxToggle,
-              isMessagesBoxOpen,
-              closeChatBox,
-              ...props
-            }) => (
-              <Fragment>
-                <ChannelList
-                  List={CustomChannelListContainer}
-                  Preview={props => (
-                    <CustomChannelPreviewContainer
-                      {...props}
-                      handleChatBoxToggle={handleChatBoxToggle}
-                      isMessagesBoxOpen={isMessagesBoxOpen}
-                    />
-                  )}
-                />
-                <Channel
-                  Paginator={props => <InfiniteScrollPaginator {...props} />}
-                >
-                  {isMessagesBoxOpen && (
-                    <div>
-                      <Thread />
-                      <CustomMessagesBoxContainer>
-                        <CustomMessageListHeader
-                          {...props}
-                          closeChatBox={closeChatBox}
-                          isMessagesBoxOpen={isMessagesBoxOpen}
-                        />
-                        <MessageList />
-                        <MessageInput />
-                      </CustomMessagesBoxContainer>
-                    </div>
-                  )}
-                </Channel>
-              </Fragment>
-            )}
-          </CustomChatBoxContainer>
-        </Chat>
-      )}
-    </ChatClientProvider>
+    <aside className="chat-overlay">
+      <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
+        {({ chatClient }) => (
+          <Chat client={chatClient} theme={'biagri'}>
+            <CustomChatBoxContainer>
+              {({
+                handleChatBoxToggle,
+                isMessagesBoxOpen,
+                closeChatBox,
+                ...props
+              }) => (
+                <Fragment>
+                  <ChannelList
+                    List={CustomChannelListContainer}
+                    Preview={props => (
+                      <CustomChannelPreviewContainer
+                        {...props}
+                        handleChatBoxToggle={handleChatBoxToggle}
+                        isMessagesBoxOpen={isMessagesBoxOpen}
+                      />
+                    )}
+                  />
+                  <Channel
+                    Paginator={props => <InfiniteScrollPaginator {...props} />}
+                  >
+                    {isMessagesBoxOpen && (
+                      <Fragment>
+                        <Thread />
+                        <CustomMessagesBoxContainer>
+                          <CustomMessageListHeader
+                            {...props}
+                            closeChatBox={closeChatBox}
+                            isMessagesBoxOpen={isMessagesBoxOpen}
+                          />
+                          <MessageList />
+                          <MessageInput />
+                        </CustomMessagesBoxContainer>
+                      </Fragment>
+                    )}
+                  </Channel>
+                </Fragment>
+              )}
+            </CustomChatBoxContainer>
+          </Chat>
+        )}
+      </ChatClientProvider>
+    </aside>
   );
 };
 export default App;

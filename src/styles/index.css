@@ -4,7 +4,7 @@
 
 .str-chat {
   box-sizing: border-box;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .str-chat__channel-list-team__main {
@@ -6900,7 +6900,7 @@
 /* FIX THOSE MEDIAS WHEN WE DEPLOY BECAUSE ACTUALLY IT TAKES THE BREAKPOINTS DEFINES BY STORYBOOK, NOT OURS */
 
 @media screen and (max-width: 960px) {
-  .biagri.str-chat .str-chat-channel.biagri .str-chat__main-panel {
+  .str-chat-channel.biagri .str-chat__main-panel {
     padding: 0;
   }
 }
@@ -6922,6 +6922,33 @@
   .str-chat__channel-list-team__main--minimized {
     display: none !important;
   }
+
+  .chat-overlay {
+    position: relative !important;
+    display: block !important;
+    right: 0 !important;
+  }
+
+  .biagri.str-chat-channel-list {
+    position: absolute;
+    width: 100%;
+  }
+
+  .str-chat-channel {
+    position: absolute;
+    width: 100%;
+  }
+
+  .biagri .str-chat__container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .str-chat-channel .str-chat__container .str-chat__main-panel {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 834px) {
@@ -6938,4 +6965,17 @@
   .str-chat__channel-list-team__main--expanded {
     height: 100%;
   }
+}
+
+.chat-overlay {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  right: 8px;
+  height: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: flex-end;
 }

@@ -923,7 +923,6 @@
   border-radius: 2px 2px 0 0;
   display: flex;
   align-items: center;
-  background: rgb(90, 148, 73);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
   font-size: 14px;
   color: white;
@@ -6717,7 +6716,27 @@
   }
 }
 
-/* CUSTOM BIAGRI CLASSES */
+/* CUSTOM BIAGRI CLASSES START */
+
+/* CUSTOM CSS VARIABLES START */
+
+:root {
+  --primary-color: #5a9449;
+  --bright-primary-color: #50bb31;
+  --background-grey-color: #ececec;
+  --lighten-grey-color: #f8f8f8;
+  --white-color: #ffffff;
+  --black-color: #2a2a2a;
+  --box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+
+  --SM-breakpoint: 576px;
+  --MD-breakpoint: 768px;
+  --LG-breakpoint: 992px;
+  --XL-breakpoint: 1200px;
+  --XXL-breakpoint: 1320px;
+  --XXXL-breakpoint: 1420px;
+}
+/* CUSTOM CSS VARIABLES END */
 
 /* CHAT OVERLAY WAS CREATED AS AN ANCHOR POINT FOR THE CHAT, 
 IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
@@ -6760,12 +6779,16 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   border-radius: 2px 2px 0 0;
   display: flex;
   align-items: center;
-  background: rgb(90, 148, 73);
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+  background: var(--primary-color);
+  box-shadow: var(--box-shadow);
   font-size: 14px;
-  color: white;
+  color: var(--white-color);
   letter-spacing: 0;
   position: relative;
+}
+
+.biagri-str-chat__header:hover {
+  filter: brightness(95%);
 }
 /* MESSAGES BOX CLASSES END */
 
@@ -6780,9 +6803,9 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   border-radius: 2px 2px 0 0;
   display: flex;
   align-items: center;
-  background: rgb(90, 148, 73);
+  background: var(--primary-color);
   font-size: 14px;
-  color: white;
+  color: var(--white-color);
   letter-spacing: 0;
   position: relative;
 }
@@ -6805,7 +6828,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 .biagri-str-chat__channel-list-team__header--title {
   font-weight: 700;
   text-transform: capitalize;
-  color: white;
+  color: var(--white-color);
 }
 
 .biagri-str-chat__channel-list-team__header--status {
@@ -6821,14 +6844,10 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   height: 6px;
   border-radius: 10px;
 }
-.biagri-str-chat__channel-list-team__header--status.watcher_count::before {
-  background: #28ca42;
-}
-.biagri-str-chat__channel-list-team__header--status.busy::before {
-  background: #28ca42;
-}
+.biagri-str-chat__channel-list-team__header--status.watcher_count::before,
+.biagri-str-chat__channel-list-team__header--status.busy::before,
 .biagri-str-chat__channel-list-team__header--status.away::before {
-  background: #28ca42;
+  background: var(--bright-primary-color);
 }
 
 .biagri-str-chat__channel-list-team__header--button {
@@ -6860,7 +6879,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   width: 300px;
   height: 100%;
   min-width: 0;
-  background: white;
+  background: var(--white-color);
   transition: transform 0.8s cubic-bezier(0.02, 1.08, 0.58, 1);
 }
 
@@ -6875,7 +6894,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   font-size: 14px;
   letter-spacing: 0;
   line-height: 40px;
-  color: black;
+  color: var(--black-color);
   position: relative;
   border: none;
   flex-direction: row;
@@ -6888,13 +6907,13 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 }
 
 .biagri.str-chat .str-chat__channel-preview-compact:hover {
-  background: #e8e8e8;
+  background: var(--lighten-grey-color);
   cursor: pointer;
 }
 
 .biagri.str-chat .str-chat__channel-preview-compact--active {
-  color: black;
-  background: #ececec;
+  color: var(--black-color);
+  background: var(--background-grey-color);
   filter: brightness(95%);
 }
 /* CHANNEL LIST CLASSES END */
@@ -6985,3 +7004,5 @@ DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
     display: none;
   }
 }
+
+/* CUSTOM BIAGRI CLASSES END */

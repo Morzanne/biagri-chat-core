@@ -3,7 +3,13 @@ import PT from 'prop-types';
 
 import { ChannelPreviewAvatarContainer } from './ChannelPreviewAvatar/ChannelPreviewAvatarContainer';
 
-const ChannelPreview = ({ onClick, channel, ...props }) => {
+const ChannelPreview = ({
+  onClick,
+  channel,
+  latestMessage,
+  latestMessageLength,
+  ...props
+}) => {
   const unreadClass =
     props.unread_count >= 1 ? 'str-chat__channel-preview-compact--unread' : '';
   const activeClass = props.active
@@ -24,7 +30,10 @@ const ChannelPreview = ({ onClick, channel, ...props }) => {
         />
       </div>
       <div className="str-chat__channel-preview-compact--right">
-        {channelName}
+        <span>{channelName}</span>
+        <span className="str-chat__channel-preview-last-message">
+          {!channel.state.messages[0] ? 'Nothing yet...' : latestMessage}
+        </span>
       </div>
     </button>
   );

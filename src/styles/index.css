@@ -6900,6 +6900,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   line-height: 40px;
   color: var(--black-color);
   position: relative;
+  flex-wrap: wrap;
   border: none;
   flex-direction: row;
   align-items: center;
@@ -6920,6 +6921,20 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   background: var(--background-grey-color);
   filter: brightness(95%);
 }
+
+.biagri.str-chat .str-chat__channel-preview-compact--right {
+  flex: 1;
+  position: relative;
+  margin-left: 11px;
+}
+
+.biagri.str-chat .str-chat__channel-preview-last-message {
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  font-style: italic;
+}
+
 /* CHANNEL LIST CLASSES END */
 
 /*### MEDIAS FIX THOSE MEDIAS WHEN WE ARE ABLE TO INTEGRATE 

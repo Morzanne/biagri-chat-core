@@ -12,12 +12,15 @@ class ChannePreviewContainer extends Component {
   };
 
   render() {
-    const { channel } = this.props;
+    const { channel, latestMessage, latestMessageLength } = this.props;
+    console.log(this.props);
 
     return (
       <ChannelPreview
         onClick={this.onClick}
         channel={channel}
+        latestMessage={latestMessage}
+        latestMessageLength={latestMessageLength}
         {...this.props}
       />
     );

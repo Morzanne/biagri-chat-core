@@ -41,10 +41,11 @@ const App = ({ apiKey, secretKey, user }) => {
                       />
                     )}
                   />
+                  {isMessagesBoxOpen && (
                   <Channel
                     Paginator={props => <InfiniteScrollPaginator {...props} />}
                   >
-                    {isMessagesBoxOpen && (
+                    
                       <Fragment>
                         <Thread />
                         <CustomMessagesBoxContainer>
@@ -57,8 +58,9 @@ const App = ({ apiKey, secretKey, user }) => {
                           <MessageInput />
                         </CustomMessagesBoxContainer>
                       </Fragment>
-                    )}
+                    
                   </Channel>
+                  )}
                 </Fragment>
               )}
             </CustomChatBoxContainer>

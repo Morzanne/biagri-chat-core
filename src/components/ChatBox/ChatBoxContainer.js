@@ -15,8 +15,6 @@ class ChatBoxContainer extends Component {
   }
 
   openChat = () => {
-    const { channel } = this.props;
-
     this.setState(prevState => ({
       isMessagesBoxOpen: prevState.isMessagesBoxOpen
         ? prevState.isMessagesBoxOpen

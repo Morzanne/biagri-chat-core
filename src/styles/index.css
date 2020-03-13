@@ -6747,6 +6747,12 @@
 .biagri-str-chat__channel-list-team__header--left {
   width: 40px;
 }
+.biagri.str-chat .str-chat__header-livestream-left {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
 
 .biagri-str-chat__channel-list-team__header--middle {
   flex: 1;
@@ -6805,6 +6811,10 @@
   border: 0;
   cursor: pointer;
   background: none;
+}
+
+.biagri-str-chat__channel-box-team__header--leftArrow {
+  display: none;
 }
 
 .biagri-str-chat__channel-list-team__header:hover {
@@ -6876,7 +6886,6 @@
   color: black;
   position: relative;
   border: none;
-
   flex-direction: row;
   align-items: center;
   width: 100%;
@@ -6910,6 +6919,17 @@
     display: block;
   }
 
+  .biagri-str-chat__channel-box-team__header--leftArrow {
+    display: block;
+    margin: 0;
+    padding: 15px 5px;
+    border: 0;
+    cursor: pointer;
+    margin-right: 10px;
+    background: none;
+  }
+  
+
   .biagri.str-chat .str-chat__channel-list-team__main,
   .str-chat-channel-list {
     width: 100%;
@@ -6932,6 +6952,7 @@
   .biagri.str-chat-channel-list {
     position: absolute;
     width: 100%;
+
   }
 
   .str-chat-channel {

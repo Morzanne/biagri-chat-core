@@ -6,7 +6,11 @@ export const ChannelListHeaderAvatar = ({
   name,
   shape,
   image,
-  initials
+  initials,
+  errored,
+  loaded,
+  onError,
+  onLoad
 }) => {
   return (
     <div className="str-chat__avatar-wrapper">
@@ -21,13 +25,13 @@ export const ChannelListHeaderAvatar = ({
           fontSize: size / 2
         }}
       >
-        {image && !this.state.errored ? (
+        {image && !errored ? (
           <img
             src={image}
             alt={initials}
             className={
               'str-chat__avatar-image' +
-              (this.state.loaded ? ' str-chat__avatar-image--loaded' : '')
+              (loaded ? ' str-chat__avatar-image--loaded' : '')
             }
             style={{
               width: size,
@@ -35,8 +39,8 @@ export const ChannelListHeaderAvatar = ({
               flexBasis: size,
               objectFit: 'cover'
             }}
-            onLoad={this.onLoad}
-            onError={this.onError}
+            onLoad={onLoad}
+            onError={onError}
           />
         ) : (
           <div className="str-chat__avatar-fallback">{initials}</div>
@@ -50,5 +54,9 @@ ChannelListHeaderAvatar.propTypes = {
   image: PT.string,
   name: PT.string,
   shape: PT.oneOf(['circle', 'rounded', 'square']),
-  size: PT.number
+  size: PT.number,
+  loaded: PT.bool,
+  errored: PT.bool,
+  onError: PT.func,
+  onLoad: PT.func
 };

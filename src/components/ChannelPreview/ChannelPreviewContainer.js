@@ -13,7 +13,6 @@ class ChannePreviewContainer extends Component {
 
   render() {
     const { channel, latestMessage, latestMessageLength } = this.props;
-    console.log(this.props);
 
     return (
       <ChannelPreview
@@ -32,7 +31,11 @@ const CustomChannelPreviewContainer = withChannelContext(
 );
 
 ChannePreviewContainer.propTypes = {
-  channel: PT.object
+  channel: PT.object,
+  latestMessage: PT.string,
+  latestMessageLength: PT.number,
+  setActiveChannel: PT.func,
+  handleChatBoxToggle: PT.func
 };
 
 export default CustomChannelPreviewContainer;

@@ -33,12 +33,17 @@ export class ChannelListHeaderAvatarContainer extends Component {
 
   render() {
     const { size, name, shape, image } = this.props;
+    const { errored, loaded } = this.state;
     return (
       <ChannelListHeaderAvatar
         size={size}
         name={name}
         shape={shape}
         image={image}
+        onLoad={this.onLoad}
+        onError={this.onError}
+        errored={errored}
+        loaded={loaded}
         initials={this.getInitials(name)}
       />
     );

@@ -1,15 +1,10 @@
 import { Component } from 'react';
 import PT from 'prop-types';
+
 import { StreamChat } from 'stream-chat';
+import { userId } from '../../data/ChatUser/const';
 
 class ChatClientProvider extends Component {
-  static propTypes = {
-    /**Secret api key thant can be find on the dashboard */
-    apiKey: PT.string.isRequired,
-
-    children: PT.func.isRequired
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +25,7 @@ class ChatClientProvider extends Component {
         );
       } else {
         client.setGuestUser({
-          id: 'Anonyme'
+          id: userId
         });
       }
 
@@ -57,6 +52,13 @@ class ChatClientProvider extends Component {
 
 ChatClientProvider.defaultProps = {
   client: null
+};
+
+ChatClientProvider.propTypes = {
+  /**Secret api key thant can be find on the dashboard */
+  apiKey: PT.string.isRequired,
+
+  children: PT.func.isRequired
 };
 
 export default ChatClientProvider;

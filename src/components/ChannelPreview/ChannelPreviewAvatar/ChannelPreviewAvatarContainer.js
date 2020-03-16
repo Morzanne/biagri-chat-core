@@ -9,6 +9,7 @@ export class ChannelPreviewAvatarContainer extends Component {
     loaded: false
   };
 
+  // EXTERNALIZE THIS ?
   getInitials = name =>
     name
       ? name
@@ -33,12 +34,17 @@ export class ChannelPreviewAvatarContainer extends Component {
 
   render() {
     const { size, name, shape, image } = this.props;
+    const { errored, loaded } = this.state;
     return (
       <ChannelPreviewAvatar
         size={size}
         name={name}
         shape={shape}
         image={image}
+        onLoad={this.onLoad}
+        onError={this.onError}
+        errored={errored}
+        loaded={loaded}
         initials={this.getInitials(name)}
       />
     );

@@ -1,12 +1,9 @@
 import { Component } from 'react';
 import PT from 'prop-types';
+
 import { withChatContext } from 'stream-chat-react';
 
 class ChatBoxContainer extends Component {
-  static propTypes = {
-    children: PT.func.isRequired
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -38,6 +35,10 @@ class ChatBoxContainer extends Component {
     });
   }
 }
+
+ChatBoxContainer.propTypes = {
+  children: PT.func.isRequired
+};
 
 const CustomChatBoxContainer = withChatContext(ChatBoxContainer);
 

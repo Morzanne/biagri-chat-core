@@ -32,7 +32,9 @@ const ChannelPreview = ({
       <div className="str-chat__channel-preview-compact--right">
         <span>{channelName}</span>
         <span className="str-chat__channel-preview-last-message">
-          {!channel.state.messages[0] ? 'Nothing yet...' : latestMessage}
+          {!channel.state.messages[0]
+            ? 'Aucun message pour le moment'
+            : latestMessage}
         </span>
       </div>
     </button>
@@ -41,7 +43,8 @@ const ChannelPreview = ({
 
 ChannelPreview.propTypes = {
   channel: PT.object,
-
+  latestMessage: PT.string,
+  latestMessageLength: PT.number,
   onClick: PT.func
 };
 

@@ -6716,7 +6716,10 @@
   }
 }
 
-/* CUSTOM BIAGRI CLASSES START */
+/* CUSTOM BIAGRI CLASSES START: 
+I DID NOT RE-WRITE CLASSES I DID NOT CHANGE. 
+IF YOU WANT TO OVERRIDE A CLASS, 
+JUST PREFIX WITH .biagri.str-chat  */
 
 /* CUSTOM CSS VARIABLES START */
 
@@ -6933,6 +6936,37 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   left: 0;
   bottom: -20px;
   font-style: italic;
+}
+
+.biagri.str-chat .str-chat__avatar-wrapper {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.biagri.str-chat .str-chat__avatar--circle {
+  border-radius: 50%;
+}
+.biagri.str-chat .str-chat__avatar--rounded {
+  border-radius: 6px;
+}
+.biagri.str-chat .str-chat__avatar--square {
+  border-radius: 0;
+}
+
+.biagri.str-chat .str-chat__avatar-fallback {
+  background-color: #a1a1a1;
+  color: black;
+}
+
+.biagri.str-chat .str-chat__avatar-image,
+.biagri.str-chat .str-chat__avatar-fallback {
+  display: block;
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  text-align: center;
+  align-items: center;
 }
 
 /* CHANNEL LIST CLASSES END */

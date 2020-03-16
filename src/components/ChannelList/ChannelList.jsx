@@ -25,7 +25,6 @@ export const ChannelList = ({ onClick, isChatBoxClosed, ...props }) => {
       <div className="biagri-str-chat__channel-list-team__header">
         <div className="biagri-str-chat__channel-list-team__header--left">
           <ChannelListHeaderAvatarContainer
-            source={props.client.user.image}
             name={props.client.user.name || props.client.user.id}
             size={35}
           />

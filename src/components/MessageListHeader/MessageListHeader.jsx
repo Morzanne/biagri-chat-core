@@ -13,7 +13,6 @@ export const MessageListHeader = ({ ...props }) => {
         <ChannelListHeaderAvatarContainer
           image={props.channel.data.image}
           shape="rounded"
-          size={props.channel.type === 'commerce' ? 60 : 40}
         />
       )}
       <div className="str-chat__header-livestream-left">

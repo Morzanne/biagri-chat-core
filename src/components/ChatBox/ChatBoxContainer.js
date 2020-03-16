@@ -7,7 +7,8 @@ class ChatBoxContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMessagesBoxOpen: false
+      isMessagesBoxOpen: false,
+      isForeGroundGuestMessageOpen: false
     };
   }
 
@@ -25,13 +26,24 @@ class ChatBoxContainer extends Component {
     }));
   };
 
+  openForegroundGuestMessage = () => {
+    this.setState({ isForeGroundGuestMessageOpen: true });
+  };
+
+  closeForegroundMessage = () => {
+    this.setState({ isForeGroundGuestMessageOpen: false });
+  };
+
   render() {
     const { children } = this.props;
 
     return children({
       handleChatBoxToggle: this.openChat,
       closeChatBox: this.closeChat,
-      isMessagesBoxOpen: this.state.isMessagesBoxOpen
+      isMessagesBoxOpen: this.state.isMessagesBoxOpen,
+      openForegroundGuestMessage: this.openForegroundGuestMessage,
+      closeForegroundMessage: this.closeForegroundMessage,
+      isForeGroundGuestMessageOpen: this.state.isForeGroundGuestMessageOpen
     });
   }
 }

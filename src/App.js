@@ -16,6 +16,7 @@ import CustomChannelPreviewContainer from './components/ChannelPreview/ChannelPr
 import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxContainer';
 
 import index from '../src/styles/index.css';
+import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
 
 const App = ({ apiKey, secretKey, user }) => {
   return (
@@ -28,6 +29,9 @@ const App = ({ apiKey, secretKey, user }) => {
                 handleChatBoxToggle,
                 isMessagesBoxOpen,
                 closeChatBox,
+                openForegroundGuestMessage,
+                closeForegroundMessage,
+                isForeGroundGuestMessageOpen,
                 ...props
               }) => (
                 <Fragment>
@@ -42,10 +46,11 @@ const App = ({ apiKey, secretKey, user }) => {
                     )}
                   />
                   {isMessagesBoxOpen && (
-                  <Channel
-                    Paginator={props => <InfiniteScrollPaginator {...props} />}
-                  >
-                    
+                    <Channel
+                      Paginator={props => (
+                        <InfiniteScrollPaginator {...props} />
+                      )}
+                    >
                       <Fragment>
                         <Thread />
                         <CustomMessagesBoxContainer>
@@ -54,12 +59,22 @@ const App = ({ apiKey, secretKey, user }) => {
                             closeChatBox={closeChatBox}
                             isMessagesBoxOpen={isMessagesBoxOpen}
                           />
+                          {isForeGroundGuestMessageOpen && (
+                            <ForegroundGuestMessage
+                              onClose={closeForegroundMessage}
+                            />
+                          )}
                           <MessageList />
-                          <MessageInput />
+                          <MessageInput
+                            overrideSubmitHandler={
+                              chatClient.user.role === 'troll'
+                                ? () => openForegroundGuestMessage()
+                                : null
+                            }
+                          />
                         </CustomMessagesBoxContainer>
                       </Fragment>
-                    
-                  </Channel>
+                    </Channel>
                   )}
                 </Fragment>
               )}

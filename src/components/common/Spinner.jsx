@@ -5,7 +5,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const Spinner = ({ className: baseClassName, color, size, padding }) => {
   return (
-    <div style={{ padding: padding + 'px' }}>
+    <div style={{ padding: padding + 'px' }} className="spinnerWrapper">
       <FontAwesomeIcon
         style={{ color: color }}
         size={size}
@@ -18,7 +18,8 @@ const Spinner = ({ className: baseClassName, color, size, padding }) => {
 };
 Spinner.defaultProps = {
   color: 'black',
-  size: '1x',
+  size: '2x',
+  padding: 100
 };
 
 export default Spinner;

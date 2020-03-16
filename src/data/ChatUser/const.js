@@ -1,3 +1,3 @@
 export const userId = {
-  guest: 'Anonyme'
+  guest: 'Invite'
 };

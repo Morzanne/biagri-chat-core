@@ -25,7 +25,8 @@ class ChatClientProvider extends Component {
         );
       } else {
         client.setGuestUser({
-          id: userId
+          id: userId.guest,
+          name: userId.guest
         });
       }
 

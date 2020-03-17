@@ -6972,13 +6972,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 
 /* CHANNEL LIST CLASSES END */
 
-.spinnerWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
+/* FOREGROUND MESSAGEBOX CLASSES START */
 
 .foregroundOverlay {
   text-align: center;
@@ -7058,6 +7052,16 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   color: var(--white-color);
   font-weight: 600;
   text-transform: uppercase;
+}
+
+/* FOREGROUND MESSAGESBOX CLASSES END */
+
+.spinnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 /*### MEDIAS FIX THOSE MEDIAS WHEN WE ARE ABLE TO INTEGRATE 

@@ -14,9 +14,9 @@ import CustomMessageListHeader from './components/MessageListHeader/MessageListH
 import CustomChatBoxContainer from './components/ChatBox/ChatBoxContainer';
 import CustomChannelPreviewContainer from './components/ChannelPreview/ChannelPreviewContainer';
 import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxContainer';
+import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
 
 import index from '../src/styles/index.css';
-import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
 
 const App = ({ apiKey, secretKey, user }) => {
   return (
@@ -65,9 +65,10 @@ const App = ({ apiKey, secretKey, user }) => {
                             />
                           )}
                           <MessageList />
+
                           <MessageInput
                             overrideSubmitHandler={
-                              chatClient.user.role === 'troll'
+                              chatClient.user.role === 'user'
                                 ? () => openForegroundGuestMessage()
                                 : null
                             }

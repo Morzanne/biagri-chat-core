@@ -6728,6 +6728,7 @@ JUST PREFIX WITH .biagri.str-chat  */
   --bright-primary-color: #50bb31;
   --background-grey-color: #ececec;
   --lighten-grey-color: #f8f8f8;
+  --warning-color: #f37f2b;
   --white-color: #ffffff;
   --black-color: #2a2a2a;
   --box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14);
@@ -6979,6 +6980,86 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   width: 100%;
 }
 
+.foregroundOverlay {
+  text-align: center;
+  filter: blur(0.5rem);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.foreground {
+  text-align: center;
+  width: 100%;
+  opacity: 0.5;
+  background-color: var(--background-grey-color);
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+}
+
+.closeForegroundButton {
+  flex-direction: column;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 5;
+  text-align: center;
+  padding: 20px 20px 0 20px;
+  position: absolute;
+  border-radius: 2px 2px 0 0;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 200px;
+  background: var(--white-color);
+  width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.biagri.str-chat .str-chat__main-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.2);
+  flex: 1 1;
+  margin-left: 50px;
+  position: relative;
+}
+
+.closeForegroundIcon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.closeForegroundIcon button {
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  background: none;
+}
+.redirectionButton {
+  color: var(--white-color);
+  border: none;
+  background-color: var(--warning-color);
+  padding: 8px;
+  margin: 20px 0 0 0;
+  border-radius: 0.25rem;
+  appearance: none;
+}
+
+.redirectionButton:hover {
+  filter: brightness(95%);
+}
+
+.redirectionButton a {
+  text-decoration: none;
+  color: var(--white-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 /*### MEDIAS FIX THOSE MEDIAS WHEN WE ARE ABLE TO INTEGRATE 
 THE CORE TO THE APP BECAUSE ACTUALLY IT TAKES THE BREAKPOINTS 
 DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
@@ -6989,9 +7070,25 @@ DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
   }
 }
 
+@media (min-width: 414px) and (max-width: 834px) {
+  .closeForegroundButton {
+    width: 375px !important;
+  }
+}
+
 @media (max-width: 414px) {
   .biagri-str-chat__channel-list-team__header--crossButton {
     display: block;
+  }
+
+  .closeForegroundButton {
+    width: 300px;
+    height: 175px;
+  }
+
+  .closeForegroundIcon {
+    top: 5px;
+    right: 5px;
   }
 
   .biagri-str-chat__channel-box-team__header--leftArrow {

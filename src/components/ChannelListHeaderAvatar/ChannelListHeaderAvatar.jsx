@@ -1,17 +1,9 @@
 import React from 'react';
 import PT from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments } from '@fortawesome/free-solid-svg-icons';
 
-export const ChannelListHeaderAvatar = ({
-  size,
-  name,
-  shape,
-  image,
-  initials,
-  errored,
-  loaded,
-  onError,
-  onLoad
-}) => {
+export const ChannelListHeaderAvatar = ({ size, shape }) => {
   return (
     <div className="str-chat__avatar-wrapper">
       <div
@@ -25,38 +17,20 @@ export const ChannelListHeaderAvatar = ({
           fontSize: size / 2
         }}
       >
-        {image && !errored ? (
-          <img
-            src={image}
-            alt={initials}
-            className={
-              'str-chat__avatar-image' +
-              (loaded ? ' str-chat__avatar-image--loaded' : '')
-            }
-            style={{
-              width: size,
-              height: size,
-              flexBasis: size,
-              objectFit: 'cover'
-            }}
-            onLoad={onLoad}
-            onError={onError}
-          />
-        ) : (
-          <div className="str-chat__avatar-fallback">{initials}</div>
-        )}
+        <div className="str-chat__avatar-fallback">
+          <FontAwesomeIcon icon={faComments} color="black" />
+        </div>
       </div>
     </div>
   );
 };
 
 ChannelListHeaderAvatar.propTypes = {
-  image: PT.string,
-  name: PT.string,
   shape: PT.oneOf(['circle', 'rounded', 'square']),
-  size: PT.number,
-  loaded: PT.bool,
-  errored: PT.bool,
-  onError: PT.func,
-  onLoad: PT.func
+  size: PT.number
+};
+
+ChannelListHeaderAvatar.defaultProps = {
+  size: 32,
+  shape: 'circle'
 };

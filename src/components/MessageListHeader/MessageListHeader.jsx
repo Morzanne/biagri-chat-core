@@ -1,7 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
 
-import { ChannelListHeaderAvatarContainer } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatarContainer';
 import { withChatContext } from 'stream-chat-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +8,6 @@ import { faTimes, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 export const MessageListHeader = ({ ...props }) => {
   return (
     <div className="biagri-str-chat__header">
-      {props.channel.data.image && (
-        <ChannelListHeaderAvatarContainer
-          image={props.channel.data.image}
-          shape="rounded"
-        />
-      )}
       <div className="str-chat__header-livestream-left">
         <button
           className="biagri-str-chat__channel-box-team__header--leftArrow"

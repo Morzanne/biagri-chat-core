@@ -1,6 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
-import { ChannelListHeaderAvatarContainer } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatarContainer';
+
 import Spinner from '../common/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -9,6 +9,7 @@ import {
   faChevronUp,
   faTimes
 } from '@fortawesome/free-solid-svg-icons';
+import { ChannelListHeaderAvatar } from '../ChannelListHeaderAvatar/ChannelListHeaderAvatar';
 
 export const ChannelList = ({ onClick, isChatBoxClosed, ...props }) => {
   if (props.loading) {
@@ -24,14 +25,11 @@ export const ChannelList = ({ onClick, isChatBoxClosed, ...props }) => {
     >
       <div className="biagri-str-chat__channel-list-team__header">
         <div className="biagri-str-chat__channel-list-team__header--left">
-          <ChannelListHeaderAvatarContainer
-            name={props.client.user.name || props.client.user.id}
-            size={35}
-          />
+          <ChannelListHeaderAvatar size={35} />
         </div>
         <div className="biagri-str-chat__channel-list-team__header--middle">
           <div className="biagri-str-chat__channel-list-team__header--title">
-            {props.client.user.name || props.client.user.id}
+            Discussions
           </div>
           <div
             className={`biagri-str-chat__channel-list-team__header--status ${props.client.user.status}`}

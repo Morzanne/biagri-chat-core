@@ -17,73 +17,77 @@ import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxCont
 import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
 
 import index from '../src/styles/index.css';
+import NavbarChannelListButtonContainer from './components/NavbarChannelListButton/NavbarChannelListButtonContainer';
 
 const App = ({ apiKey, secretKey, user }) => {
   return (
-    <aside className="chat-overlay">
-      <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
-        {({ chatClient }) => (
-          <Chat client={chatClient} theme={'biagri'}>
-            <CustomChatBoxContainer>
-              {({
-                handleChatBoxToggle,
-                isMessagesBoxOpen,
-                closeChatBox,
-                openForegroundGuestMessage,
-                closeForegroundMessage,
-                isForeGroundGuestMessageOpen,
-                ...props
-              }) => (
-                <Fragment>
-                  <ChannelList
-                    List={CustomChannelListContainer}
-                    Preview={props => (
-                      <CustomChannelPreviewContainer
-                        {...props}
-                        handleChatBoxToggle={handleChatBoxToggle}
-                        isMessagesBoxOpen={isMessagesBoxOpen}
-                      />
-                    )}
-                  />
-                  {isMessagesBoxOpen && (
-                    <Channel
-                      Paginator={props => (
-                        <InfiniteScrollPaginator {...props} />
+    <Fragment>
+      <NavbarChannelListButtonContainer />
+      <aside className="chat-overlay">
+        <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
+          {({ chatClient }) => (
+            <Chat client={chatClient} theme={'biagri'}>
+              <CustomChatBoxContainer>
+                {({
+                  handleChatBoxToggle,
+                  isMessagesBoxOpen,
+                  closeChatBox,
+                  openForegroundGuestMessage,
+                  closeForegroundMessage,
+                  isForeGroundGuestMessageOpen,
+                  ...props
+                }) => (
+                  <Fragment>
+                    <ChannelList
+                      List={CustomChannelListContainer}
+                      Preview={props => (
+                        <CustomChannelPreviewContainer
+                          {...props}
+                          handleChatBoxToggle={handleChatBoxToggle}
+                          isMessagesBoxOpen={isMessagesBoxOpen}
+                        />
                       )}
-                    >
-                      <Fragment>
-                        <Thread />
-                        <CustomMessagesBoxContainer>
-                          <CustomMessageListHeader
-                            {...props}
-                            closeChatBox={closeChatBox}
-                            isMessagesBoxOpen={isMessagesBoxOpen}
-                          />
-                          {isForeGroundGuestMessageOpen && (
-                            <ForegroundGuestMessage
-                              onClose={closeForegroundMessage}
+                    />
+                    {isMessagesBoxOpen && (
+                      <Channel
+                        Paginator={props => (
+                          <InfiniteScrollPaginator {...props} />
+                        )}
+                      >
+                        <Fragment>
+                          <Thread />
+                          <CustomMessagesBoxContainer>
+                            <CustomMessageListHeader
+                              {...props}
+                              closeChatBox={closeChatBox}
+                              isMessagesBoxOpen={isMessagesBoxOpen}
                             />
-                          )}
-                          <MessageList />
+                            {isForeGroundGuestMessageOpen && (
+                              <ForegroundGuestMessage
+                                onClose={closeForegroundMessage}
+                              />
+                            )}
+                            <MessageList />
 
-                          <MessageInput
-                            overrideSubmitHandler={
-                              chatClient.user.role === 'user'
-                                ? () => openForegroundGuestMessage()
-                                : null
-                            }
-                          />
-                        </CustomMessagesBoxContainer>
-                      </Fragment>
-                    </Channel>
-                  )}
-                </Fragment>
-              )}
-            </CustomChatBoxContainer>
-          </Chat>
-        )}
-      </ChatClientProvider>
-    </aside>
+                            <MessageInput
+                              overrideSubmitHandler={
+                                chatClient.user.role === 'user'
+                                  ? () => openForegroundGuestMessage()
+                                  : null
+                              }
+                            />
+                          </CustomMessagesBoxContainer>
+                        </Fragment>
+                      </Channel>
+                    )}
+                  </Fragment>
+                )}
+              </CustomChatBoxContainer>
+            </Chat>
+          )}
+        </ChatClientProvider>
+      </aside>
+    </Fragment>
   );
 };
 export default App;

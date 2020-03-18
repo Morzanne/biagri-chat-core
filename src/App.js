@@ -18,6 +18,7 @@ import ForegroundGuestMessage from './components/ForegroundGuestMessage/Foregrou
 
 import index from '../src/styles/index.css';
 import NavbarChannelListButtonContainer from './components/NavbarChannelListButton/NavbarChannelListButtonContainer';
+import { userRoles } from './data/ChatUser/const';
 
 const App = ({ apiKey, secretKey, user }) => {
   return (
@@ -71,7 +72,7 @@ const App = ({ apiKey, secretKey, user }) => {
 
                             <MessageInput
                               overrideSubmitHandler={
-                                chatClient.user.role === 'user'
+                                chatClient.user.role === userRoles.guest
                                   ? () => openForegroundGuestMessage()
                                   : null
                               }

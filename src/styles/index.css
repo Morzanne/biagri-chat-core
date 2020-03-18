@@ -7064,6 +7064,23 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   width: 100%;
 }
 
+.navbarChannelListButton {
+  display: none;
+  font-size: 18px;
+  margin-right: 14px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* ADAPT .biagri.str-chat THIS WITH BREAKPOINTS WHEN WE INTEGRATE THE CORE INTO THE APP.
+ WHY ? 'CAUSE THIS IS THE HIGHER CLASS 
+THAT DETERMINATES THE HEIGHT OF THE CHAT */
+.biagri.str-chat {
+  height: 100vh;
+}
+
 /*### MEDIAS FIX THOSE MEDIAS WHEN WE ARE ABLE TO INTEGRATE 
 THE CORE TO THE APP BECAUSE ACTUALLY IT TAKES THE BREAKPOINTS 
 DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
@@ -7085,6 +7102,9 @@ DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
     display: block;
   }
 
+  .navbarChannelListButton {
+    display: block;
+  }
   .closeForegroundButton {
     width: 300px;
     height: 175px;
@@ -7129,17 +7149,19 @@ DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
   .biagri.str-chat-channel-list {
     width: 100vw;
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
     left: 0;
   }
 
   .str-chat-channel {
-    position: absolute;
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    left: 0;
   }
 
-  .biagri .str-chat__container {
+  .biagri.str-chat .str-chat__container {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -7150,10 +7172,7 @@ DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
     margin-left: 0;
     box-shadow: none;
     width: 100vw;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+    position: relative;
   }
 }
 

@@ -31,12 +31,14 @@ export const ChannelList = ({ onClick, isChatBoxClosed, ...props }) => {
           <div className="biagri-str-chat__channel-list-team__header--title">
             Discussions
           </div>
+
           <div
             className={`biagri-str-chat__channel-list-team__header--status ${props.client.user.status}`}
           >
             {props.client.user.status}
           </div>
         </div>
+        <div className="new-tag">Nouveau</div>
         <div className="biagri-str-chat__channel-list-team__header--right">
           <button
             onClick={onClick}

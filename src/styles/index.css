@@ -6727,6 +6727,7 @@ JUST PREFIX WITH .biagri.str-chat  */
   --primary-color: #5a9449;
   --bright-primary-color: #50bb31;
   --background-grey-color: #ececec;
+  --background-red-tag: rgb(231, 76, 60);
   --lighten-grey-color: #f8f8f8;
   --warning-color: #f37f2b;
   --white-color: #ffffff;
@@ -6968,6 +6969,17 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   object-fit: cover;
   text-align: center;
   align-items: center;
+}
+
+.new-tag {
+  background: var(--background-red-tag) ;
+  color: var(--white-color);
+  margin-right: 8px;
+  font-size: 14px;
+  padding: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 3px;
 }
 
 /* CHANNEL LIST CLASSES END */

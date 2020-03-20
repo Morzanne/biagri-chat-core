@@ -15,10 +15,11 @@ import CustomChatBoxContainer from './components/ChatBox/ChatBoxContainer';
 import CustomChannelPreviewContainer from './components/ChannelPreview/ChannelPreviewContainer';
 import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxContainer';
 import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
-
-import index from '../src/styles/index.css';
 import NavbarChannelListButtonContainer from './components/NavbarChannelListButton/NavbarChannelListButtonContainer';
 import { userRoles } from './data/ChatUser/const';
+import { BiagriInputChatContainer } from './components/BiagriInputChat/BiagriInputChatContainer';
+
+import index from '../src/styles/index.css';
 
 const App = ({ apiKey, secretKey, user }) => {
   return (
@@ -76,6 +77,7 @@ const App = ({ apiKey, secretKey, user }) => {
                                   ? () => openForegroundGuestMessage()
                                   : null
                               }
+                              Input={BiagriInputChatContainer}
                             />
                           </CustomMessagesBoxContainer>
                         </Fragment>

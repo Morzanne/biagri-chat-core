@@ -1,11 +1,42 @@
 import React from 'react';
 import { MessageInputFlat } from 'stream-chat-react';
-import { formatArray } from '../../lib/utils';
 
 import { ChatAutoComplete } from 'stream-chat-react';
 import { ImageDropzone, FileUploadButton } from 'react-file-utils';
 
 export class BiagriInputChatContainer extends MessageInputFlat {
+  /* This function is only here to format the array of users 
+when multiple users are typing in the same time and display 
+it at the bottom of the input. It make the separator differents 
+when users are typing */
+  formatTypingUserArray = dict => {
+    
+    //Find out what is this array for
+    const arr2 = Object.keys(dict);
+
+    const typingUserArray = [];
+
+    arr2.forEach((item, i) =>
+      typingUserArray.push(dict[arr2[i]].user.name || dict[arr2[i]].user.id)
+    );
+    let typingUserSentenceString = '';
+    if (typingUserArray.length === 1) {
+      typingUserSentenceString = typingUserArray[0] + ' is typing...';
+      dict;
+    } else if (typingUserArray.length === 2) {
+      typingUserSentenceString =
+        typingUserArray.join(' and ') + ' are typing...';
+    } else if (typingUserArray.length > 2) {
+      typingUserSentenceString =
+        typingUserArray.slice(0, -1).join(', ') +
+        ', and ' +
+        typingUserArray.slice(-1) +
+        ' are typing...';
+    }
+
+    return typingUserSentenceString;
+  };
+
   render() {
     const SendButton = this.props.SendButton;
     return (
@@ -13,11 +44,7 @@ export class BiagriInputChatContainer extends MessageInputFlat {
         <ImageDropzone
           accept={this.props.acceptedFiles}
           multiple={this.props.multipleUploads}
-          disabled={
-            this.props.numberOfUploads >= this.props.maxNumberOfFiles
-              ? true
-              : false
-          }
+          disabled={this.props.numberOfUploads >= this.props.maxNumberOfFiles}
           handleFiles={this.props.uploadNewFiles}
         >
           <div className="str-chat__input">
@@ -56,8 +83,6 @@ export class BiagriInputChatContainer extends MessageInputFlat {
                 multiple={this.props.multipleUploads}
                 disabled={
                   this.props.numberOfUploads >= this.props.maxNumberOfFiles
-                    ? true
-                    : false
                 }
                 accepts={this.props.acceptedFiles}
                 handleFiles={this.props.uploadNewFiles}
@@ -92,7 +117,7 @@ export class BiagriInputChatContainer extends MessageInputFlat {
                 {this.props.watcher_count} online
               </span>
               <span className="str-chat__input-footer--typing">
-                {formatArray(this.props.typing)}
+                {this.formatTypingUserArray(this.props.typing)}
               </span>
             </div>
           </div>

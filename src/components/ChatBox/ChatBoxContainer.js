@@ -14,9 +14,7 @@ class ChatBoxContainer extends Component {
 
   openChat = () => {
     this.setState(prevState => ({
-      isMessagesBoxOpen: prevState.isMessagesBoxOpen
-        ? prevState.isMessagesBoxOpen
-        : !prevState.isMessagesBoxOpen
+      isMessagesBoxOpen: true
     }));
   };
 

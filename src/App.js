@@ -24,7 +24,6 @@ import index from '../src/styles/index.css';
 const App = ({ apiKey, secretKey, user }) => {
   return (
     <Fragment>
-      <NavbarChannelListButtonContainer />
       <aside className="chat-overlay">
         <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
           {({ chatClient }) => (

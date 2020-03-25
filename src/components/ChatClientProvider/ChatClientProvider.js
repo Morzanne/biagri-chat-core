@@ -14,6 +14,7 @@ class ChatClientProvider extends Component {
 
   componentDidMount = () => {
     const { user } = this.props;
+
     if (!this.state.client) {
       const client = new StreamChat(this.props.apiKey);
       if (user) {
@@ -39,6 +40,13 @@ class ChatClientProvider extends Component {
   render() {
     const { children, user } = this.props;
     const { client } = this.state;
+    if (client) {
+      const response = client.queryUsers({
+        id: '2154',
+        token:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMjE1NCJ9.0lSGYDf6wmhHSmBoBYooJbRh81qFE0NEGZtiJGhsACI'
+      });
+    }
 
     if (!children || !client) {
       return null;

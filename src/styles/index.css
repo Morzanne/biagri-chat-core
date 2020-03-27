@@ -6460,7 +6460,7 @@
 }
 
 .biagri.str-chat .str-chat__avatar-fallback {
-  background-color: #a1a1a1;
+  background-color: var(--bright-primary-color);
   color: black;
   border-radius: 50%;
 }
@@ -6880,12 +6880,25 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   filter: brightness(95%);
 }
 
+.str-chat__avatar-fallback-channel-preview {
+  display: block;
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  text-align: center;
+  align-items: center;
+  background-color: #a1a1a1;
+  color: black;
+  border-radius: 50%;
+}
+
 /** COMMON EXPANDED AND MINIMIZED CHAT BOX PROPERTIES  */
 .biagri.str-chat .str-chat__channel-list-team__main {
   display: flex;
   flex-direction: column;
   flex: 0 0 264px;
   width: 300px;
+  cursor: pointer;
   height: 100%;
   min-width: 0;
   background: var(--white-color);
@@ -6957,7 +6970,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 }
 
 .biagri.str-chat .str-chat__avatar-fallback {
-  background-color: #a1a1a1;
+  background-color: var(---primary-color);
   color: black;
 }
 
@@ -6972,7 +6985,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 }
 
 .new-tag {
-  background: var(--background-red-tag) ;
+  background: var(--background-red-tag);
   color: var(--white-color);
   margin-right: 8px;
   font-size: 14px;
@@ -7046,6 +7059,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   background: none;
 }
 .redirectionButton {
+  cursor: pointer;
   color: var(--white-color);
   border: none;
   background-color: var(--warning-color);
@@ -7059,7 +7073,7 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   filter: brightness(95%);
 }
 
-.redirectionButton a {
+.redirectionButton {
   text-decoration: none;
   color: var(--white-color);
   font-weight: 600;
@@ -7195,6 +7209,12 @@ DEFINES BY STORYBOOK, NOT COMPARATEUR MAIN APP */
 
   .biagri-str-chat__channel-list-team__header--button {
     display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .biagri.str-chat .str-chat__main-panel {
+    width: 600px;
   }
 }
 

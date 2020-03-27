@@ -4,7 +4,7 @@ import { MessageInputFlat } from 'stream-chat-react';
 import { ChatAutoComplete } from 'stream-chat-react';
 import { ImageDropzone, FileUploadButton } from 'react-file-utils';
 
-export class BiagriInputChatContainer extends MessageInputFlat {
+export class CustomInputChatContainer extends MessageInputFlat {
   /* This function is only here to format the array of users 
 when multiple users are typing in the same time and display 
 it at the bottom of the input. It make the separator differents 

@@ -18,7 +18,7 @@ export const ChannelListHeaderAvatar = ({ size, shape }) => {
         }}
       >
         <div className="str-chat__avatar-fallback">
-          <FontAwesomeIcon icon={faComments} color="black" />
+          <FontAwesomeIcon icon={faComments} color="white" />
         </div>
       </div>
     </div>

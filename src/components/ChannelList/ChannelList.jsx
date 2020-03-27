@@ -23,7 +23,10 @@ export const ChannelList = ({ onClick, isChatBoxClosed, ...props }) => {
           : 'str-chat__channel-list-team__main str-chat__channel-list-team__main--minimized'
       }
     >
-      <div className="biagri-str-chat__channel-list-team__header">
+      <div
+        className="biagri-str-chat__channel-list-team__header"
+        onClick={onClick}
+      >
         <div className="biagri-str-chat__channel-list-team__header--left">
           <ChannelListHeaderAvatar size={35} />
         </div>
@@ -40,10 +43,7 @@ export const ChannelList = ({ onClick, isChatBoxClosed, ...props }) => {
         </div>
         <div className="new-tag">Nouveau</div>
         <div className="biagri-str-chat__channel-list-team__header--right">
-          <button
-            onClick={onClick}
-            className="biagri-str-chat__channel-list-team__header--button"
-          >
+          <button className="biagri-str-chat__channel-list-team__header--button">
             <FontAwesomeIcon
               icon={isChatBoxClosed ? faChevronDown : faChevronUp}
               color="white"

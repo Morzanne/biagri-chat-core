@@ -17,11 +17,11 @@ const ForegroundGuestMessage = ({ onClose }) => {
           vous inscrire ou de vous connecter
         </div>
         <div>
-          <button className="redirectionButton">
-            <a href="https://comparateuragricole.com/inscription">
+          <a href="https://comparateuragricole.com/inscription">
+            <button className="redirectionButton">
               <span>Connexion / Inscription</span>
-            </a>
-          </button>
+            </button>
+          </a>
         </div>
       </div>
     </div>

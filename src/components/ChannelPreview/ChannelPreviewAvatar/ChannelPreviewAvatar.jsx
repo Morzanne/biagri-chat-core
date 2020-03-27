@@ -42,7 +42,7 @@ export const ChannelPreviewAvatar = ({
           onError={onError}
         />
       ) : (
-        <div className="str-chat__avatar-fallback">{initials}</div>
+        <div className="str-chat__avatar-fallback-channel-preview">{initials}</div>
       )}
     </div>
   );

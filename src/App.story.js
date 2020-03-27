@@ -1,5 +1,6 @@
 import React from 'react';
 import App from './App';
+import User from './data/Model/user';
 
 export default {
   title: 'Full chat rendering',
@@ -7,26 +8,27 @@ export default {
 };
 
 export const Basic = () => {
+  const chatUser = new User({
+    id: '2154',
+    token:
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMjE1NCJ9.10ObeQlA1AKIpqQtPcu29MTAKOL1NkdG-9qUte6u_2o'
+  });
   return (
     <App
-      apiKey={'6udgaavbs4pz'}
+      apiKey={'y9yapa6fxuup'}
       secretKey={
-        '7327ta9mp4a5yeq4fphqdwba6ubd84fahv22hdnz3v6twzx7xgec98azamxphm4w'
+        'npj8y2fj747dec65jajzpqgdtjjya2x47udeyzjgwuee8sw36vytze4y6pbc7px3'
       }
-      user={{
-        id: '2154',
-        token:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMjE1NCJ9.0lSGYDf6wmhHSmBoBYooJbRh81qFE0NEGZtiJGhsACI'
-      }}
+      user={chatUser}
     />
   );
 };
 
 export const withGuestUser = () => (
   <App
-    apiKey={'6udgaavbs4pz'}
+    apiKey={'y9yapa6fxuup'}
     secretKey={
-      '7327ta9mp4a5yeq4fphqdwba6ubd84fahv22hdnz3v6twzx7xgec98azamxphm4w'
+      'npj8y2fj747dec65jajzpqgdtjjya2x47udeyzjgwuee8sw36vytze4y6pbc7px3'
     }
     user={null}
   />

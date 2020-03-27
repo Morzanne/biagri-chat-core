@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import PT from 'prop-types';
+
 import {
   Chat,
   Channel,
@@ -15,19 +17,19 @@ import CustomChatBoxContainer from './components/ChatBox/ChatBoxContainer';
 import CustomChannelPreviewContainer from './components/ChannelPreview/ChannelPreviewContainer';
 import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxContainer';
 import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
-import NavbarChannelListButtonContainer from './components/NavbarChannelListButton/NavbarChannelListButtonContainer';
+import  User  from './data/Model/user';
 import { userRoles } from './data/ChatUser/const';
-import { BiagriInputChatContainer } from './components/BiagriInputChat/BiagriInputChatContainer';
+import { CustomInputChatContainer } from './components/CustomInputChat/CustomInputChatContainer';
 
-import index from '../src/styles/index.css';
+import './styles/index.css';
 
-const App = ({ apiKey, secretKey, user }) => {
+const App = ({ apiKey, secretKey, user, theme }) => {
   return (
     <Fragment>
       <aside className="chat-overlay">
         <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
           {({ chatClient }) => (
-            <Chat client={chatClient} theme={'biagri'}>
+            <Chat client={chatClient} theme={theme}>
               <CustomChatBoxContainer>
                 {({
                   handleChatBoxToggle,
@@ -76,7 +78,7 @@ const App = ({ apiKey, secretKey, user }) => {
                                   ? () => openForegroundGuestMessage()
                                   : null
                               }
-                              Input={BiagriInputChatContainer}
+                              Input={CustomInputChatContainer}
                             />
                           </CustomMessagesBoxContainer>
                         </Fragment>
@@ -93,3 +95,17 @@ const App = ({ apiKey, secretKey, user }) => {
   );
 };
 export default App;
+
+App.defaultProps = {
+  theme: 'biagri'
+};
+
+App.propTypes = {
+  apiKey: PT.string.isRequired,
+
+  secretKey: PT.string.isRequired,
+
+  theme: PT.string,
+
+  user: PT.instanceOf(User)
+};

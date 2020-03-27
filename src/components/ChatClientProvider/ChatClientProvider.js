@@ -3,6 +3,7 @@ import PT from 'prop-types';
 
 import { StreamChat } from 'stream-chat';
 import { userId } from '../../data/ChatUser/const';
+import User from '../../data/Model/user';
 
 class ChatClientProvider extends Component {
   constructor(props) {
@@ -13,10 +14,9 @@ class ChatClientProvider extends Component {
   }
 
   componentDidMount = () => {
-    const { user } = this.props;
-
+    const { user, apiKey } = this.props;
     if (!this.state.client) {
-      const client = new StreamChat(this.props.apiKey);
+      const client = new StreamChat(apiKey);
       if (user) {
         client.setUser(
           {
@@ -39,14 +39,8 @@ class ChatClientProvider extends Component {
 
   render() {
     const { children, user } = this.props;
+
     const { client } = this.state;
-    if (client) {
-      const response = client.queryUsers({
-        id: '2154',
-        token:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMjE1NCJ9.0lSGYDf6wmhHSmBoBYooJbRh81qFE0NEGZtiJGhsACI'
-      });
-    }
 
     if (!children || !client) {
       return null;
@@ -67,7 +61,9 @@ ChatClientProvider.propTypes = {
   /**Secret api key thant can be find on the dashboard */
   apiKey: PT.string.isRequired,
 
-  children: PT.func.isRequired
+  children: PT.func.isRequired,
+
+  user: PT.instanceOf(User)
 };
 
 export default ChatClientProvider;

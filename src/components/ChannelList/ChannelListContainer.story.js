@@ -13,9 +13,6 @@ export const DesktopAndTableChannelListState = () => {
   return (
     <ChatClientProvider
       apiKey={'6udgaavbs4pz'}
-      secretKey={
-        '7327ta9mp4a5yeq4fphqdwba6ubd84fahv22hdnz3v6twzx7xgec98azamxphm4w'
-      }
       user={{
         id: '2150',
         token:

@@ -9,20 +9,22 @@ export class CustomInputChatContainer extends MessageInputFlat {
 when multiple users are typing in the same time and display 
 it at the bottom of the input. It make the separator differents 
 when users are typing */
-  formatTypingUserArray = dict => {
-    
+  formatTypingUserArray = getStreamDictionnary => {
     //Find out what is this array for
-    const arr2 = Object.keys(dict);
+    const typingUsers = Object.keys(getStreamDictionnary);
 
     const typingUserArray = [];
 
-    arr2.forEach((item, i) =>
-      typingUserArray.push(dict[arr2[i]].user.name || dict[arr2[i]].user.id)
-    );
+    typingUsers.forEach((item, i) => {
+      return typingUserArray.push(
+        getStreamDictionnary[typingUsers[i]].user.userName ||
+          getStreamDictionnary[typingUsers[i]].user.id
+      );
+    });
     let typingUserSentenceString = '';
     if (typingUserArray.length === 1) {
       typingUserSentenceString = typingUserArray[0] + ' is typing...';
-      dict;
+      getStreamDictionnary;
     } else if (typingUserArray.length === 2) {
       typingUserSentenceString =
         typingUserArray.join(' and ') + ' are typing...';

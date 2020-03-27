@@ -17,17 +17,17 @@ import CustomChatBoxContainer from './components/ChatBox/ChatBoxContainer';
 import CustomChannelPreviewContainer from './components/ChannelPreview/ChannelPreviewContainer';
 import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxContainer';
 import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
-import  User  from './data/Model/user';
+import User from './data/Model/user';
 import { userRoles } from './data/ChatUser/const';
 import { CustomInputChatContainer } from './components/CustomInputChat/CustomInputChatContainer';
 
 import './styles/index.css';
 
-const App = ({ apiKey, secretKey, user, theme }) => {
+const App = ({ apiKey, user, theme }) => {
   return (
     <Fragment>
       <aside className="chat-overlay">
-        <ChatClientProvider apiKey={apiKey} secretKey={secretKey} user={user}>
+        <ChatClientProvider apiKey={apiKey} user={user}>
           {({ chatClient }) => (
             <Chat client={chatClient} theme={theme}>
               <CustomChatBoxContainer>

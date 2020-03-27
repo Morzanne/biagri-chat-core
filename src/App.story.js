@@ -16,9 +16,6 @@ export const Basic = () => {
   return (
     <App
       apiKey={'y9yapa6fxuup'}
-      secretKey={
-        'npj8y2fj747dec65jajzpqgdtjjya2x47udeyzjgwuee8sw36vytze4y6pbc7px3'
-      }
       user={chatUser}
     />
   );
@@ -27,9 +24,6 @@ export const Basic = () => {
 export const withGuestUser = () => (
   <App
     apiKey={'y9yapa6fxuup'}
-    secretKey={
-      'npj8y2fj747dec65jajzpqgdtjjya2x47udeyzjgwuee8sw36vytze4y6pbc7px3'
-    }
     user={null}
   />
 );

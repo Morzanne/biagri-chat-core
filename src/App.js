@@ -6,7 +6,8 @@ import {
   Channel,
   Thread,
   ChannelList,
-  InfiniteScrollPaginator
+  InfiniteScrollPaginator,
+  Streami18n
 } from 'stream-chat-react';
 import { MessageList, MessageInput } from 'stream-chat-react';
 
@@ -23,13 +24,16 @@ import { CustomInputChatContainer } from './components/CustomInputChat/CustomInp
 
 import './styles/index.css';
 
+
+const i18n = new Streami18n({ language:'fr' });
+
 const App = ({ apiKey, user, theme }) => {
   return (
     <Fragment>
       <aside className="chat-overlay">
         <ChatClientProvider apiKey={apiKey} user={user}>
           {({ chatClient }) => (
-            <Chat client={chatClient} theme={theme}>
+            <Chat client={chatClient} theme={theme} i18nInstance={i18n}>
               <CustomChatBoxContainer>
                 {({
                   handleChatBoxToggle,

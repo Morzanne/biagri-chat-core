@@ -59,7 +59,6 @@ App.defaultProps = {
 
 App.propTypes = {
   apiKey: PT.string.isRequired,
-  secretKey: PT.string.isRequired,
   theme: PT.string,
   user: PT.instanceOf(User)
 };

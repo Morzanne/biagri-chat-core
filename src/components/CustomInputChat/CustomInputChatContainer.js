@@ -1,44 +1,66 @@
-import React from 'react';
-import { MessageInputFlat } from 'stream-chat-react';
+import React, { PureComponent } from 'react';
 
-import { ChatAutoComplete } from 'stream-chat-react';
+import { ChatAutoComplete, withTranslationContext } from 'stream-chat-react';
 import { ImageDropzone, FileUploadButton } from 'react-file-utils';
 
-export class CustomInputChatContainer extends MessageInputFlat {
-  /* This function is only here to format the array of users 
-when multiple users are typing in the same time and display 
-it at the bottom of the input. It make the separator differents 
-when users are typing */
-  formatTypingUserArray = getStreamDictionnary => {
-    //Find out what is this array for
-    const typingUsers = Object.keys(getStreamDictionnary);
+// Copy pasted from `stream-chat-react/src/components/MessageInputFlat.js`
+// TODO: remove copy pasting
+class CustomInputChatContainer extends PureComponent {
+  static defaultProps = {
+    grow: true,
+    disabled: false
+  };
 
-    const typingUserArray = [];
+  renderUploads = () => (
+    <>
+      {this.props.imageOrder.length > 0 && (
+        <ImagePreviewer
+          imageUploads={this.props.imageOrder.map(
+            id => this.props.imageUploads[id]
+          )}
+          handleRemove={this.props.removeImage}
+          handleRetry={this.props.uploadImage}
+          handleFiles={this.props.uploadNewFiles}
+          multiple={this.props.multipleUploads}
+          disabled={this.props.numberOfUploads >= this.props.maxNumberOfFiles}
+        />
+      )}
+      {this.props.fileOrder.length > 0 && (
+        <div className="str-chat__file-uploads">
+          <FilePreviewer
+            uploads={this.props.fileOrder.map(id => this.props.fileUploads[id])}
+            handleRemove={this.props.removeFile}
+            handleRetry={this.props.uploadFile}
+            handleFiles={this.props.uploadNewFiles}
+          />
+        </div>
+      )}
+    </>
+  );
 
-    typingUsers.forEach((item, i) => {
-      return typingUserArray.push(
-        getStreamDictionnary[typingUsers[i]].user.name ||
-          getStreamDictionnary[typingUsers[i]].user.id
+  renderEmojiPicker = () => {
+    if (this.props.emojiPickerIsOpen) {
+      return (
+        <div
+          className="str-chat__input-flat--emojipicker"
+          ref={this.props.emojiPickerRef}
+        >
+          <Picker
+            native
+            emoji="point_up"
+            title="Pick your emoji…"
+            onSelect={this.props.onSelectEmoji}
+            color="#006CFF"
+            showPreview={false}
+            emojisToShowFilter={filterEmoji}
+          />
+        </div>
       );
-    });
-    let typingUserSentenceString = '';
-    if (typingUserArray.length === 1) {
-      typingUserSentenceString = typingUserArray[0] + ' is typing...';
-    } else if (typingUserArray.length === 2) {
-      typingUserSentenceString =
-        typingUserArray.join(' and ') + ' are typing...';
-    } else if (typingUserArray.length > 2) {
-      typingUserSentenceString =
-        typingUserArray.slice(0, -1).join(', ') +
-        ', and ' +
-        typingUserArray.slice(-1) +
-        ' are typing...';
     }
-
-    return typingUserSentenceString;
   };
 
   render() {
+    const { t } = this.props;
     const SendButton = this.props.SendButton;
     return (
       <div className="str-chat__input-large">
@@ -62,7 +84,7 @@ when users are typing */
                 value={this.props.text}
                 rows={1}
                 maxRows={this.props.maxRows}
-                placeholder="Prenez part au débat et donnez votre avis !"
+                placeholder={t('Type your message')}
                 onPaste={this.props.onPaste}
                 grow={this.props.grow}
                 disabled={this.props.disabled}
@@ -108,18 +130,7 @@ when users are typing */
           </div>
           <div>
             <div className="str-chat__input-footer">
-              <span
-                className={`str-chat__input-footer--count ${
-                  !this.props.watcher_count
-                    ? 'str-chat__input-footer--count--hidden'
-                    : ''
-                }`}
-              >
-                {this.props.watcher_count} online
-              </span>
-              <span className="str-chat__input-footer--typing">
-                {this.formatTypingUserArray(this.props.typing)}
-              </span>
+              {/* TODO: fix the padding and remove this */}
             </div>
           </div>
         </ImageDropzone>
@@ -127,3 +138,5 @@ when users are typing */
     );
   }
 }
+
+export default withTranslationContext(CustomInputChatContainer);

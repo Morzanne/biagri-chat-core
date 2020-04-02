@@ -1,27 +1,31 @@
-import React, { Fragment } from 'react';
-import PT from 'prop-types';
+import React, { Fragment } from "react";
+import PT from "prop-types";
 
 import {
   Chat,
   Channel,
   Thread,
   ChannelList,
-  InfiniteScrollPaginator
-} from 'stream-chat-react';
-import { MessageList, MessageInput } from 'stream-chat-react';
+  InfiniteScrollPaginator,
+  Streami18n
+} from "stream-chat-react";
+import { MessageList, MessageInput } from "stream-chat-react";
 
-import ChatClientProvider from './components/ChatClientProvider/ChatClientProvider';
-import CustomChannelListContainer from './components/ChannelList/ChannelListContainer';
-import CustomMessageListHeader from './components/MessageListHeader/MessageListHeader';
-import CustomChatBoxContainer from './components/ChatBox/ChatBoxContainer';
-import CustomChannelPreviewContainer from './components/ChannelPreview/ChannelPreviewContainer';
-import CustomMessagesBoxContainer from './components/MessagesBox/MessagesBoxContainer';
-import ForegroundGuestMessage from './components/ForegroundGuestMessage/ForegroundGuestMessage';
-import User from './data/Model/user';
-import { userRoles } from './data/ChatUser/const';
-import { CustomInputChatContainer } from './components/CustomInputChat/CustomInputChatContainer';
+import fr from './i18n/fr';
+import ChatClientProvider from "./components/ChatClientProvider/ChatClientProvider";
+import CustomChannelListContainer from "./components/ChannelList/ChannelListContainer";
+import CustomMessageListHeader from "./components/MessageListHeader/MessageListHeader";
+import CustomChatBoxContainer from "./components/ChatBox/ChatBoxContainer";
+import CustomChannelPreviewContainer from "./components/ChannelPreview/ChannelPreviewContainer";
+import CustomMessagesBoxContainer from "./components/MessagesBox/MessagesBoxContainer";
+import ForegroundGuestMessage from "./components/ForegroundGuestMessage/ForegroundGuestMessage";
+import User from "./data/Model/user";
+import { userRoles } from "./data/ChatUser/const";
+import CustomInputChatContainer from "./components/CustomInputChat/CustomInputChatContainer";
 
-import './styles/index.css';
+import "./styles/index.css";
+
+const i18n = new Streami18n(fr);
 
 const App = ({ apiKey, user, theme }) => {
   return (
@@ -29,7 +33,7 @@ const App = ({ apiKey, user, theme }) => {
       <aside className="chat-overlay">
         <ChatClientProvider apiKey={apiKey} user={user}>
           {({ chatClient }) => (
-            <Chat client={chatClient} theme={theme}>
+            <Chat client={chatClient} theme={theme} i18nInstance={i18n}>
               <CustomChatBoxContainer>
                 {({
                   handleChatBoxToggle,
@@ -97,7 +101,7 @@ const App = ({ apiKey, user, theme }) => {
 export default App;
 
 App.defaultProps = {
-  theme: 'biagri'
+  theme: "biagri"
 };
 
 App.propTypes = {

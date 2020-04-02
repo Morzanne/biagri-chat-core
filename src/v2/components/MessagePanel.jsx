@@ -4,7 +4,7 @@ import PT from "prop-types";
 import { Channel, Thread, InfiniteScrollPaginator } from "stream-chat-react";
 import { MessageList, MessageInput } from "stream-chat-react";
 
-import { CustomInputChatContainer } from '../../components/CustomInputChat/CustomInputChatContainer';
+import CustomInputChatContainer from '../../components/CustomInputChat/CustomInputChatContainer';
 import MessageListHeader from "../../components/MessageListHeader/MessageListHeader";
 import MessagesBoxContainer from "../../components/MessagesBox/MessagesBoxContainer";
 import ForegroundGuestMessage from "../../components/ForegroundGuestMessage/ForegroundGuestMessage";

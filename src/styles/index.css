@@ -7080,6 +7080,14 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
   text-transform: uppercase;
 }
 
+.biagri.str-chat .str-chat__message--with-reactions {
+  margin: 10px 0 30px 0;
+}
+
+.biagri.str-chat .str-chat__message .str-chat__reaction-list{
+  top: 30px;
+}
+
 /* FOREGROUND MESSAGESBOX CLASSES END */
 
 .spinnerWrapper {

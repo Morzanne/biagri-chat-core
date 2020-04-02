@@ -61,7 +61,6 @@ class CustomInputChatContainer extends PureComponent {
 
   render() {
     const { t } = this.props;
-    console.log(t);
     const SendButton = this.props.SendButton;
     return (
       <div className="str-chat__input-large">

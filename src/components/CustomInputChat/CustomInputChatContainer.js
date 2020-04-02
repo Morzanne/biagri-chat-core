@@ -17,14 +17,13 @@ when users are typing */
 
     typingUsers.forEach((item, i) => {
       return typingUserArray.push(
-        getStreamDictionnary[typingUsers[i]].user.userName ||
+        getStreamDictionnary[typingUsers[i]].user.name ||
           getStreamDictionnary[typingUsers[i]].user.id
       );
     });
     let typingUserSentenceString = '';
     if (typingUserArray.length === 1) {
       typingUserSentenceString = typingUserArray[0] + ' is typing...';
-      getStreamDictionnary;
     } else if (typingUserArray.length === 2) {
       typingUserSentenceString =
         typingUserArray.join(' and ') + ' are typing...';

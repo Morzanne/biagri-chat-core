@@ -7099,7 +7099,6 @@ IN ORDER TO BE ABLE TO CREATE THE TOGGLE CHAT WIDGET ON DESKTOP */
 }
 
 .navbarChannelListButton {
-  display: none;
   font-size: 18px;
   margin-right: 14px;
   border-radius: 50%;

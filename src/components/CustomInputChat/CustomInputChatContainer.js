@@ -11,33 +11,6 @@ class CustomInputChatContainer extends PureComponent {
     disabled: false
   };
 
-  renderUploads = () => (
-    <>
-      {this.props.imageOrder.length > 0 && (
-        <ImagePreviewer
-          imageUploads={this.props.imageOrder.map(
-            id => this.props.imageUploads[id]
-          )}
-          handleRemove={this.props.removeImage}
-          handleRetry={this.props.uploadImage}
-          handleFiles={this.props.uploadNewFiles}
-          multiple={this.props.multipleUploads}
-          disabled={this.props.numberOfUploads >= this.props.maxNumberOfFiles}
-        />
-      )}
-      {this.props.fileOrder.length > 0 && (
-        <div className="str-chat__file-uploads">
-          <FilePreviewer
-            uploads={this.props.fileOrder.map(id => this.props.fileUploads[id])}
-            handleRemove={this.props.removeFile}
-            handleRetry={this.props.uploadFile}
-            handleFiles={this.props.uploadNewFiles}
-          />
-        </div>
-      )}
-    </>
-  );
-
   renderEmojiPicker = () => {
     if (this.props.emojiPickerIsOpen) {
       return (
@@ -71,7 +44,32 @@ class CustomInputChatContainer extends PureComponent {
           handleFiles={this.props.uploadNewFiles}
         >
           <div className="str-chat__input">
-            {this.renderUploads()}
+            {this.props.imageOrder.length > 0 && (
+              <ImagePreviewer
+                imageUploads={this.props.imageOrder.map(
+                  id => this.props.imageUploads[id]
+                )}
+                handleRemove={this.props.removeImage}
+                handleRetry={this.props.uploadImage}
+                handleFiles={this.props.uploadNewFiles}
+                multiple={this.props.multipleUploads}
+                disabled={
+                  this.props.numberOfUploads >= this.props.maxNumberOfFiles
+                }
+              />
+            )}
+            {this.props.fileOrder.length > 0 && (
+              <div className="str-chat__file-uploads">
+                <FilePreviewer
+                  uploads={this.props.fileOrder.map(
+                    id => this.props.fileUploads[id]
+                  )}
+                  handleRemove={this.props.removeFile}
+                  handleRetry={this.props.uploadFile}
+                  handleFiles={this.props.uploadNewFiles}
+                />
+              </div>
+            )}
             {this.renderEmojiPicker()}
             <div className="str-chat__input--textarea-wrapper">
               <ChatAutoComplete
